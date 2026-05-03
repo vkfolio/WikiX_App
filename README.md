@@ -177,10 +177,15 @@ archive. The underlying knowledge engine is MIT — see
 
 ## Acknowledgements
 
-The engine that powers this desktop builds on three open-source projects
-the wikiX team thanks publicly:
-[graphify-5](https://github.com/jellyterra/graphify-5),
-[graphiti](https://github.com/getzep/graphiti) (Zep AI), and
-[WeKnora](https://github.com/Tencent/WeKnora) (Tencent). See the
-[engine README](https://github.com/vkfolio/wikiX#built-on-the-shoulders-of-three-brilliant-projects)
-for the full story.
+The whole stack started with
+[**Andrej Karpathy's April 2026 post**](https://x.com/karpathy/status/2039805659525644595)
+on LLM-built knowledge bases — the engine that powers this desktop is one
+downstream branch of the wave that followed. Direct conceptual debts go
+to [graphify](https://github.com/safishamsi/graphify) (structural layer)
+and [graphiti](https://github.com/getzep/graphiti) (the bi-temporal
+layer, separate lineage from Zep AI). Plus the long list of libraries
+catalogued in the
+[engine README](https://github.com/vkfolio/wikiX#libraries--frameworks-that-make-this-work) —
+Tauri, React, Cytoscape.js, marked, DOMPurify, Shiki, Mermaid, KaTeX,
+FastAPI, Gin, Asynq, pgvector, Neo4j, Caddy, OpenTelemetry, tree-sitter,
+and the rest.
