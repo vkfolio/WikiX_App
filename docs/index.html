@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>wikiX — Temporal Knowledge Engine</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
     <style>
         :root {
             --bg-primary: #030305;
             --bg-secondary: #07070a;
             --bg-tertiary: #0f0f14;
-            --bg-card: rgba(255,255,255,0.02);
+            --bg-card: rgba(255, 255, 255, 0.02);
             --accent-cyan: #22d3ee;
             --accent-teal: #2aeda0;
             --accent-violet: #8b5cf6;
@@ -29,8 +32,15 @@
             --bg-elevated: #0d1525;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
 
         body {
             font-family: var(--font-sans);
@@ -41,9 +51,18 @@
             cursor: default;
         }
 
-        ::-webkit-scrollbar { width: 5px; }
-        ::-webkit-scrollbar-track { background: var(--bg-primary); }
-        ::-webkit-scrollbar-thumb { background: linear-gradient(var(--accent-cyan), var(--accent-teal)); border-radius: 3px; }
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-primary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(var(--accent-cyan), var(--accent-teal));
+            border-radius: 3px;
+        }
 
         /* Scroll Progress */
         .scroll-progress {
@@ -97,7 +116,7 @@
         }
 
         nav.scrolled {
-            background: rgba(3,3,5,0.85);
+            background: rgba(3, 3, 5, 0.85);
             backdrop-filter: blur(20px) saturate(1.2);
             border-bottom: 1px solid var(--border-subtle);
             padding: 0.875rem 2.5rem;
@@ -111,7 +130,9 @@
             transition: transform 0.3s var(--ease-out-expo);
         }
 
-        .logo:hover { transform: scale(1.02); }
+        .logo:hover {
+            transform: scale(1.02);
+        }
 
         .logo svg {
             height: 36px;
@@ -189,7 +210,9 @@
             transform: translateY(-1px);
         }
 
-        .nav-cta:hover::before { opacity: 1; }
+        .nav-cta:hover::before {
+            opacity: 1;
+        }
 
         .github-nav-btn {
             display: inline-flex;
@@ -203,11 +226,20 @@
             transition: color 0.3s ease;
             white-space: nowrap;
         }
-        .github-nav-btn svg { flex-shrink: 0; }
-        .github-nav-btn:hover { color: var(--text-primary); }
+
+        .github-nav-btn svg {
+            flex-shrink: 0;
+        }
+
+        .github-nav-btn:hover {
+            color: var(--text-primary);
+        }
 
         /* Sections */
-        section { position: relative; z-index: 2; }
+        section {
+            position: relative;
+            z-index: 2;
+        }
 
         /* Hero */
         .hero {
@@ -235,8 +267,17 @@
         }
 
         @keyframes breathe {
-            0%, 100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1); }
-            50% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
+
+            0%,
+            100% {
+                opacity: 0.6;
+                transform: translate(-50%, -50%) scale(1);
+            }
+
+            50% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1.1);
+            }
         }
 
         .hero-badge {
@@ -270,13 +311,18 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(90deg, transparent, rgba(34,211,238,0.1), transparent);
+            background: linear-gradient(90deg, transparent, rgba(34, 211, 238, 0.1), transparent);
             animation: shimmer 3s infinite;
         }
 
         @keyframes shimmer {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
+            0% {
+                transform: translateX(-100%);
+            }
+
+            100% {
+                transform: translateX(100%);
+            }
         }
 
         .hero h1 {
@@ -338,25 +384,27 @@
         .btn-primary {
             background: linear-gradient(135deg, var(--accent-cyan), var(--accent-teal));
             color: var(--bg-primary);
-            box-shadow: 0 4px 25px rgba(34, 211, 238, 0.25), inset 0 1px 0 rgba(255,255,255,0.2);
+            box-shadow: 0 4px 25px rgba(34, 211, 238, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2);
         }
 
         .btn-primary:hover {
             transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 12px 40px rgba(34, 211, 238, 0.4), inset 0 1px 0 rgba(255,255,255,0.3);
+            box-shadow: 0 12px 40px rgba(34, 211, 238, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);
         }
 
-        .btn-primary:active { transform: translateY(-1px) scale(0.98); }
+        .btn-primary:active {
+            transform: translateY(-1px) scale(0.98);
+        }
 
         .btn-secondary {
-            background: rgba(255,255,255,0.03);
+            background: rgba(255, 255, 255, 0.03);
             color: var(--text-primary);
             border: 1px solid var(--border-subtle);
             backdrop-filter: blur(10px);
         }
 
         .btn-secondary:hover {
-            background: rgba(255,255,255,0.07);
+            background: rgba(255, 255, 255, 0.07);
             border-color: var(--border-glow);
             transform: translateY(-2px);
             box-shadow: 0 8px 30px rgba(34, 211, 238, 0.08);
@@ -385,7 +433,9 @@
             background: linear-gradient(to bottom, transparent, var(--border-subtle), transparent);
         }
 
-        .stat:last-child::after { display: none; }
+        .stat:last-child::after {
+            display: none;
+        }
 
         .stat-value {
             font-family: var(--font-mono);
@@ -456,13 +506,21 @@
         }
 
         @media (max-width: 768px) {
-            .product-grid { grid-template-columns: 1fr; }
-            .hero-stats { gap: 2rem; }
-            .stat::after { display: none; }
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-stats {
+                gap: 2rem;
+            }
+
+            .stat::after {
+                display: none;
+            }
         }
 
         .product-card {
-            background: linear-gradient(145deg, rgba(255,255,255,0.03), rgba(255,255,255,0.005));
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.005));
             border: 1px solid var(--border-subtle);
             border-radius: 20px;
             padding: 2.5rem;
@@ -503,8 +561,13 @@
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4), 0 0 40px rgba(34, 211, 238, 0.05);
         }
 
-        .product-card:hover::before { opacity: 1; }
-        .product-card:hover::after { opacity: 1; }
+        .product-card:hover::before {
+            opacity: 1;
+        }
+
+        .product-card:hover::after {
+            opacity: 1;
+        }
 
         .product-icon {
             width: 52px;
@@ -605,7 +668,9 @@
             color: var(--accent-teal);
         }
 
-        .product-link:hover::after { width: 100%; }
+        .product-link:hover::after {
+            width: 100%;
+        }
 
         /* Features */
         .features {
@@ -623,10 +688,15 @@
         }
 
         @media (max-width: 900px) {
-            .features-grid { grid-template-columns: repeat(2, 1fr); }
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
+
         @media (max-width: 600px) {
-            .features-grid { grid-template-columns: 1fr; }
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         .feature-card {
@@ -654,10 +724,10 @@
         }
 
         .feature-card:hover {
-            background: rgba(255,255,255,0.04);
+            background: rgba(255, 255, 255, 0.04);
             border-color: rgba(34, 211, 238, 0.12);
             transform: translateY(-4px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
         }
 
         .feature-card:hover::before {
@@ -716,7 +786,7 @@
             border: 1px solid var(--border-subtle);
             border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 40px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.03);
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.03);
             transform: perspective(1000px) rotateX(2deg);
             transition: transform 0.6s var(--ease-out-expo);
         }
@@ -730,7 +800,7 @@
             align-items: center;
             gap: 0.5rem;
             padding: 1rem 1.25rem;
-            background: rgba(255,255,255,0.02);
+            background: rgba(255, 255, 255, 0.02);
             border-bottom: 1px solid var(--border-subtle);
         }
 
@@ -740,9 +810,17 @@
             border-radius: 50%;
         }
 
-        .code-dot:nth-child(1) { background: #ff5f57; }
-        .code-dot:nth-child(2) { background: #febc2e; }
-        .code-dot:nth-child(3) { background: #28c840; }
+        .code-dot:nth-child(1) {
+            background: #ff5f57;
+        }
+
+        .code-dot:nth-child(2) {
+            background: #febc2e;
+        }
+
+        .code-dot:nth-child(3) {
+            background: #28c840;
+        }
 
         .code-title {
             margin-left: 0.75rem;
@@ -779,12 +857,30 @@
             user-select: none;
         }
 
-        .code-keyword { color: #c678dd; }
-        .code-string { color: #98c379; }
-        .code-func { color: #61afef; }
-        .code-comment { color: #5c6370; font-style: italic; }
-        .code-type { color: #e5c07b; }
-        .code-num { color: #d19a66; }
+        .code-keyword {
+            color: #c678dd;
+        }
+
+        .code-string {
+            color: #98c379;
+        }
+
+        .code-func {
+            color: #61afef;
+        }
+
+        .code-comment {
+            color: #5c6370;
+            font-style: italic;
+        }
+
+        .code-type {
+            color: #e5c07b;
+        }
+
+        .code-num {
+            color: #d19a66;
+        }
 
         /* Desktop Showcase */
         .showcase {
@@ -815,7 +911,10 @@
         }
 
         @media (max-width: 768px) {
-            .showcase-content { grid-template-columns: 1fr; gap: 3rem; }
+            .showcase-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
         }
 
         .showcase-visual {
@@ -828,13 +927,13 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
             transition: all 0.6s var(--ease-out-expo);
         }
 
         .showcase-visual:hover {
             transform: translateY(-5px) scale(1.01);
-            box-shadow: 0 40px 80px rgba(0,0,0,0.5), 0 0 40px rgba(34, 211, 238, 0.06);
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5), 0 0 40px rgba(34, 211, 238, 0.06);
         }
 
         .showcase-visual::before {
@@ -856,7 +955,15 @@
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            box-shadow: inset 0 0 30px rgba(0,0,0,0.5);
+            box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.5);
+        }
+
+.showcase-screenshot {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top left;
         }
 
         .screen-header {
@@ -875,9 +982,17 @@
             border-radius: 50%;
         }
 
-        .screen-dot:nth-child(1) { background: var(--accent-rose); }
-        .screen-dot:nth-child(2) { background: var(--accent-amber); }
-        .screen-dot:nth-child(3) { background: #22c55e; }
+        .screen-dot:nth-child(1) {
+            background: var(--accent-rose);
+        }
+
+        .screen-dot:nth-child(2) {
+            background: var(--accent-amber);
+        }
+
+        .screen-dot:nth-child(3) {
+            background: #22c55e;
+        }
 
         .screen-body {
             flex: 1;
@@ -888,7 +1003,7 @@
         }
 
         .screen-sidebar {
-            background: rgba(255,255,255,0.015);
+            background: rgba(255, 255, 255, 0.015);
             border-radius: 6px;
             padding: 0.625rem;
             display: flex;
@@ -898,7 +1013,7 @@
 
         .screen-sidebar-item {
             height: 8px;
-            background: rgba(255,255,255,0.04);
+            background: rgba(255, 255, 255, 0.04);
             border-radius: 3px;
             width: 75%;
             transition: all 0.3s ease;
@@ -910,7 +1025,7 @@
         }
 
         .screen-main {
-            background: rgba(255,255,255,0.015);
+            background: rgba(255, 255, 255, 0.015);
             border-radius: 6px;
             position: relative;
             overflow: hidden;
@@ -934,8 +1049,17 @@
         }
 
         @keyframes nodePulse {
-            0%, 100% { transform: scale(1); opacity: 0.9; }
-            50% { transform: scale(1.3); opacity: 1; }
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 0.9;
+            }
+
+            50% {
+                transform: scale(1.3);
+                opacity: 1;
+            }
         }
 
         .screen-edge {
@@ -1046,10 +1170,12 @@
             background: rgba(139, 92, 246, 0.04);
             color: var(--text-primary);
             transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
 
-        .mcp-item:hover::before { opacity: 1; }
+        .mcp-item:hover::before {
+            opacity: 1;
+        }
 
         .mcp-item .tool-name {
             color: var(--accent-violet);
@@ -1085,7 +1211,7 @@
 
         .cta-box:hover {
             border-color: rgba(34, 211, 238, 0.12);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
             transform: translateY(-3px);
         }
 
@@ -1100,7 +1226,10 @@
             animation: rotate 25s linear infinite;
         }
 
-        .cta-box > * { position: relative; z-index: 1; }
+        .cta-box>* {
+            position: relative;
+            z-index: 1;
+        }
 
         .cta h2 {
             font-size: clamp(2rem, 4.5vw, 3rem);
@@ -1154,7 +1283,9 @@
             transition: transform 0.3s ease;
         }
 
-        .github-btn:hover svg { transform: rotate(10deg) scale(1.1); }
+        .github-btn:hover svg {
+            transform: rotate(10deg) scale(1.1);
+        }
 
         /* Footer */
         footer {
@@ -1188,27 +1319,57 @@
             transition: width 0.3s ease;
         }
 
-        footer a:hover::after { width: 100%; }
+        footer a:hover::after {
+            width: 100%;
+        }
 
         /* Animations */
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(40px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-30px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         @keyframes pulse {
-            0%, 100% { opacity: 1; box-shadow: 0 0 10px var(--accent-cyan); }
-            50% { opacity: 0.4; box-shadow: 0 0 20px var(--accent-cyan); }
+
+            0%,
+            100% {
+                opacity: 1;
+                box-shadow: 0 0 10px var(--accent-cyan);
+            }
+
+            50% {
+                opacity: 0.4;
+                box-shadow: 0 0 20px var(--accent-cyan);
+            }
         }
 
         @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
         }
 
         /* Scroll Reveals */
@@ -1256,12 +1417,29 @@
             transform: scale(1);
         }
 
-        .stagger-1 { transition-delay: 0.1s; }
-        .stagger-2 { transition-delay: 0.2s; }
-        .stagger-3 { transition-delay: 0.3s; }
-        .stagger-4 { transition-delay: 0.4s; }
-        .stagger-5 { transition-delay: 0.5s; }
-        .stagger-6 { transition-delay: 0.6s; }
+        .stagger-1 {
+            transition-delay: 0.1s;
+        }
+
+        .stagger-2 {
+            transition-delay: 0.2s;
+        }
+
+        .stagger-3 {
+            transition-delay: 0.3s;
+        }
+
+        .stagger-4 {
+            transition-delay: 0.4s;
+        }
+
+        .stagger-5 {
+            transition-delay: 0.5s;
+        }
+
+        .stagger-6 {
+            transition-delay: 0.6s;
+        }
 
         /* Magnetic cursor effect area */
         .magnetic {
@@ -1270,16 +1448,47 @@
 
         /* Mobile */
         @media (max-width: 768px) {
-            nav { padding: 1rem 1.25rem; }
-            .nav-links { display: none; }
-            .hero { padding: 8rem 1.5rem 4rem; }
-            .hero-stats { gap: 2rem; margin-top: 3rem; }
-            .stat::after { display: none; }
-            .product-grid { grid-template-columns: 1fr; }
-            .showcase-content { grid-template-columns: 1fr; gap: 3rem; }
-            .showcase-visual { order: -1; }
-            .features-grid { grid-template-columns: 1fr; }
-            .code-window { transform: none; }
+            nav {
+                padding: 1rem 1.25rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 8rem 1.5rem 4rem;
+            }
+
+            .hero-stats {
+                gap: 2rem;
+                margin-top: 3rem;
+            }
+
+            .stat::after {
+                display: none;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .showcase-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .showcase-visual {
+                order: -1;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .code-window {
+                transform: none;
+            }
         }
 
         /* ── Install Pill ── */
@@ -1288,7 +1497,7 @@
             align-items: center;
             gap: 0.75rem;
             padding: 0.6875rem 1.125rem;
-            background: rgba(255,255,255,0.03);
+            background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(34, 211, 238, 0.2);
             border-radius: 10px;
             font-family: var(--font-mono);
@@ -1300,12 +1509,50 @@
             animation: fadeInUp 1s var(--ease-out-expo) 0.65s both;
             max-width: calc(100vw - 3rem);
         }
-        .install-pill:hover { border-color: rgba(34, 211, 238, 0.4); background: rgba(34, 211, 238, 0.04); color: var(--text-primary); }
-        .install-pill .prompt { color: var(--accent-teal); user-select: none; flex-shrink: 0; }
-        .install-pill .install-cmd { flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
-        .install-pill .copy-btn { width: 28px; height: 28px; border-radius: 6px; display: flex; align-items: center; justify-content: center; background: rgba(34, 211, 238, 0.08); border: 1px solid rgba(34, 211, 238, 0.15); color: var(--accent-cyan); flex-shrink: 0; transition: all 0.2s ease; pointer-events: none; }
-        .install-pill:hover .copy-btn { background: rgba(34, 211, 238, 0.18); }
-        .install-pill.copied { border-color: rgba(42, 237, 160, 0.4); color: var(--accent-teal); }
+
+        .install-pill:hover {
+            border-color: rgba(34, 211, 238, 0.4);
+            background: rgba(34, 211, 238, 0.04);
+            color: var(--text-primary);
+        }
+
+        .install-pill .prompt {
+            color: var(--accent-teal);
+            user-select: none;
+            flex-shrink: 0;
+        }
+
+        .install-pill .install-cmd {
+            flex: 1;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            min-width: 0;
+        }
+
+        .install-pill .copy-btn {
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(34, 211, 238, 0.08);
+            border: 1px solid rgba(34, 211, 238, 0.15);
+            color: var(--accent-cyan);
+            flex-shrink: 0;
+            transition: all 0.2s ease;
+            pointer-events: none;
+        }
+
+        .install-pill:hover .copy-btn {
+            background: rgba(34, 211, 238, 0.18);
+        }
+
+        .install-pill.copied {
+            border-color: rgba(42, 237, 160, 0.4);
+            color: var(--accent-teal);
+        }
 
         /* ── Works With ── */
         .works-with {
@@ -1317,14 +1564,30 @@
             justify-content: center;
             animation: fadeInUp 1s var(--ease-out-expo) 0.78s both;
         }
-        .works-with-label { font-family: var(--font-mono); font-size: 0.625rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.15em; white-space: nowrap; }
-        .works-with-agents { display: flex; gap: 0.625rem; align-items: center; flex-wrap: wrap; justify-content: center; }
+
+        .works-with-label {
+            font-family: var(--font-mono);
+            font-size: 0.625rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            white-space: nowrap;
+        }
+
+        .works-with-agents {
+            display: flex;
+            gap: 0.625rem;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
         .agent-chip {
             display: inline-flex;
             align-items: center;
             gap: 0.3125rem;
             padding: 0.3125rem 0.6875rem;
-            background: rgba(255,255,255,0.02);
+            background: rgba(255, 255, 255, 0.02);
             border: 1px solid var(--border-subtle);
             border-radius: 100px;
             font-family: var(--font-mono);
@@ -1333,34 +1596,50 @@
             transition: all 0.3s ease;
             white-space: nowrap;
         }
-        .agent-chip:hover { border-color: rgba(34, 211, 238, 0.2); color: var(--text-secondary); }
+
+        .agent-chip:hover {
+            border-color: rgba(34, 211, 238, 0.2);
+            color: var(--text-secondary);
+        }
 
         /* ── Hero Graph Preview ── */
         .hero-graph-preview {
             width: 100%;
-            max-width: 840px;
+            max-width: 980px;
             margin: 3.5rem auto 0;
             animation: fadeInUp 1s var(--ease-out-expo) 0.92s both;
         }
+
         .hero-graph-frame {
             background: linear-gradient(145deg, #07070e, #050509);
             border: 1px solid rgba(34, 211, 238, 0.1);
             border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 40px 100px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.02), 0 0 80px rgba(34,211,238,0.03);
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.02), 0 0 80px rgba(34, 211, 238, 0.03);
             transform: perspective(1400px) rotateX(4deg);
             transition: transform 0.8s var(--ease-out-expo);
         }
-        .hero-graph-frame:hover { transform: perspective(1400px) rotateX(0deg) translateY(-6px); }
+
+        .hero-graph-frame:hover {
+            transform: perspective(1400px) rotateX(0deg) translateY(-6px);
+        }
+
         .hero-graph-titlebar {
             display: flex;
             align-items: center;
             gap: 0.5rem;
             padding: 0.75rem 1.125rem;
-            background: rgba(255,255,255,0.025);
-            border-bottom: 1px solid rgba(255,255,255,0.04);
+            background: rgba(255, 255, 255, 0.025);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
         }
-        .hero-graph-titlebar > span { font-family: var(--font-mono); font-size: 0.6875rem; color: var(--text-muted); margin-left: 0.5rem; }
+
+        .hero-graph-titlebar>span {
+            font-family: var(--font-mono);
+            font-size: 0.6875rem;
+            color: var(--text-muted);
+            margin-left: 0.5rem;
+        }
+
         .temporal-selector {
             margin-left: auto;
             display: flex;
@@ -1369,37 +1648,96 @@
             font-family: var(--font-mono);
             font-size: 0.625rem;
             color: var(--text-muted);
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.07);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.07);
             border-radius: 6px;
             padding: 0.25rem 0.625rem;
             cursor: pointer;
             transition: all 0.3s ease;
             user-select: none;
         }
-        .temporal-selector:hover { border-color: rgba(34,211,238,0.3); color: var(--accent-cyan); }
-        .ts-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent-teal); box-shadow: 0 0 6px var(--accent-teal); flex-shrink: 0; animation: pulse 2.5s infinite; }
-        #hero-graph-canvas { display: block; width: 100%; height: 220px; }
+
+        .temporal-selector:hover {
+            border-color: rgba(34, 211, 238, 0.3);
+            color: var(--accent-cyan);
+        }
+
+        .ts-dot {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--accent-teal);
+            box-shadow: 0 0 6px var(--accent-teal);
+            flex-shrink: 0;
+            animation: pulse 2.5s infinite;
+        }
+
+        #hero-graph-canvas {
+            display: block;
+            width: 100%;
+            height: 460px;
+        }
 
         /* ── Code + Transcript Grid ── */
-        .code-grid { max-width: 1060px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
-        @media (max-width: 860px) { .code-grid { grid-template-columns: 1fr; } }
+        .code-grid {
+            max-width: 1060px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+        }
+
+        @media (max-width: 860px) {
+            .code-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
         .transcript-window {
             background: linear-gradient(145deg, #0c0c12, #08080c);
             border: 1px solid var(--border-subtle);
             border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 40px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.03);
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.03);
             transform: perspective(1000px) rotateX(2deg);
             transition: transform 0.6s var(--ease-out-expo);
             display: flex;
             flex-direction: column;
         }
-        .transcript-window:hover { transform: perspective(1000px) rotateX(0deg) translateY(-5px); }
-        .transcript-body { padding: 1.25rem; font-family: var(--font-mono); font-size: 0.75rem; line-height: 1.7; flex: 1; }
-        .tx-tool-call { display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 0.3125rem; }
-        .tx-arrow { color: var(--accent-cyan); flex-shrink: 0; font-size: 0.6875rem; margin-top: 0.15em; }
-        .tx-meta { color: var(--text-muted); font-size: 0.6875rem; margin-bottom: 0.625rem; padding-left: 1rem; }
+
+        .transcript-window:hover {
+            transform: perspective(1000px) rotateX(0deg) translateY(-5px);
+        }
+
+        .transcript-body {
+            padding: 1.25rem;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            line-height: 1.7;
+            flex: 1;
+        }
+
+        .tx-tool-call {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            margin-bottom: 0.3125rem;
+        }
+
+        .tx-arrow {
+            color: var(--accent-cyan);
+            flex-shrink: 0;
+            font-size: 0.6875rem;
+            margin-top: 0.15em;
+        }
+
+        .tx-meta {
+            color: var(--text-muted);
+            font-size: 0.6875rem;
+            margin-bottom: 0.625rem;
+            padding-left: 1rem;
+        }
+
         .tx-result {
             background: rgba(42, 237, 160, 0.04);
             border: 1px solid rgba(42, 237, 160, 0.1);
@@ -1410,19 +1748,106 @@
             font-size: 0.6875rem;
             line-height: 1.65;
         }
-        .tx-cite { color: var(--text-muted); font-size: 0.625rem; margin-top: 0.375rem; display: flex; align-items: center; gap: 0.375rem; }
-        .tx-cite-dot { width: 3px; height: 3px; border-radius: 50%; background: var(--accent-teal); flex-shrink: 0; }
-        .tx-follow { display: flex; align-items: center; gap: 0.4375rem; color: var(--text-muted); font-size: 0.6875rem; margin-top: 0.875rem; opacity: 0.65; cursor: pointer; transition: all 0.2s ease; }
-        .tx-follow:hover { color: var(--accent-cyan); opacity: 1; }
-        .tx-plus { width: 15px; height: 15px; border: 1px solid currentColor; border-radius: 3px; display: flex; align-items: center; justify-content: center; font-size: 0.8125rem; flex-shrink: 0; line-height: 1; }
+
+        .tx-cite {
+            color: var(--text-muted);
+            font-size: 0.625rem;
+            margin-top: 0.375rem;
+            display: flex;
+            align-items: center;
+            gap: 0.375rem;
+        }
+
+        .tx-cite-dot {
+            width: 3px;
+            height: 3px;
+            border-radius: 50%;
+            background: var(--accent-teal);
+            flex-shrink: 0;
+        }
+
+        .tx-follow {
+            display: flex;
+            align-items: center;
+            gap: 0.4375rem;
+            color: var(--text-muted);
+            font-size: 0.6875rem;
+            margin-top: 0.875rem;
+            opacity: 0.65;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .tx-follow:hover {
+            color: var(--accent-cyan);
+            opacity: 1;
+        }
+
+        .tx-plus {
+            width: 15px;
+            height: 15px;
+            border: 1px solid currentColor;
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8125rem;
+            flex-shrink: 0;
+            line-height: 1;
+        }
 
         /* ── Showcase screen improvements ── */
-        .screen-sidebar-label { font-family: var(--font-mono); font-size: 0.4rem; color: var(--text-muted); padding: 0.25rem 0.375rem 0.125rem; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.6; }
-        .screen-sidebar-nav { display: flex; flex-direction: column; gap: 0.15rem; padding: 0 0.25rem; }
-        .screen-nav-item { display: flex; align-items: center; gap: 0.25rem; padding: 0.2rem 0.375rem; border-radius: 3px; font-family: var(--font-mono); font-size: 0.45rem; color: rgba(148,163,184,0.4); transition: all 0.2s ease; }
-        .screen-nav-item.active { background: rgba(34, 211, 238, 0.1); color: var(--accent-cyan); }
-        .nav-dot { width: 4px; height: 4px; border-radius: 50%; background: currentColor; flex-shrink: 0; }
-        .screen-node-label { position: absolute; font-family: var(--font-mono); font-size: 0.38rem; color: rgba(148,163,184,0.55); white-space: nowrap; pointer-events: none; }
+        .screen-sidebar-label {
+            font-family: var(--font-mono);
+            font-size: 0.4rem;
+            color: var(--text-muted);
+            padding: 0.25rem 0.375rem 0.125rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            opacity: 0.6;
+        }
+
+        .screen-sidebar-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 0.15rem;
+            padding: 0 0.25rem;
+        }
+
+        .screen-nav-item {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            padding: 0.2rem 0.375rem;
+            border-radius: 3px;
+            font-family: var(--font-mono);
+            font-size: 0.45rem;
+            color: rgba(148, 163, 184, 0.4);
+            transition: all 0.2s ease;
+        }
+
+        .screen-nav-item.active {
+            background: rgba(34, 211, 238, 0.1);
+            color: var(--accent-cyan);
+        }
+
+        .nav-dot {
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: currentColor;
+            flex-shrink: 0;
+        }
+
+        .screen-node-label {
+            position: absolute;
+            font-family: var(--font-mono);
+            font-size: 0.38rem;
+            color: rgba(148, 163, 184, 0.55);
+            white-space: nowrap;
+            pointer-events: none;
+        }
+
         .screen-temporal-bar {
             position: absolute;
             bottom: 0.5rem;
@@ -1431,17 +1856,26 @@
             align-items: center;
             gap: 0.3rem;
             padding: 0.2rem 0.45rem;
-            background: rgba(34,211,238,0.05);
-            border: 1px solid rgba(34,211,238,0.15);
+            background: rgba(34, 211, 238, 0.05);
+            border: 1px solid rgba(34, 211, 238, 0.15);
             border-radius: 4px;
             font-family: var(--font-mono);
             font-size: 0.38rem;
             color: var(--accent-cyan);
             opacity: 0.85;
         }
-        .ts-indicator { width: 4px; height: 4px; border-radius: 50%; background: var(--accent-teal); animation: pulse 2.5s infinite; flex-shrink: 0; }
+
+        .ts-indicator {
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: var(--accent-teal);
+            animation: pulse 2.5s infinite;
+            flex-shrink: 0;
+        }
     </style>
 </head>
+
 <body>
     <div class="scroll-progress" id="scrollProgress"></div>
     <div class="noise"></div>
@@ -1450,20 +1884,41 @@
     <nav id="navbar">
         <a href="#" class="logo">
             <svg viewBox="0 0 260 64" height="36" xmlns="http://www.w3.org/2000/svg">
-                <path d="M260,8l0,48c0,4.415 -3.585,8 -8,8l-244,0c-4.415,0 -8,-3.585 -8,-8l0,-48c0,-4.415 3.585,-8 8,-8l244,0c4.415,0 8,3.585 8,8Z" fill="#040806"/>
-                <path d="M12.639,20.75l0,1.436c0,1.66 0.359,2.692 1.211,4.351l10.856,20.59c0.718,1.211 2.512,1.48 3.185,0.224l4.262,-6.908c1.121,-1.57 1.211,-4.441 -0.135,-6.415l-10.721,-15.835c-1.346,-1.884 -2.467,-2.422 -3.992,-2.422c-2.736,0 -4.665,2.108 -4.665,4.979l0,-0Zm22.743,-2.781c-0.799,0.912 -2.377,3.544 -2.377,3.544c-0.852,1.391 -1.151,3.058 -1.391,4.307c-0.2,1.043 -0.234,2.14 -0.045,3.185c0.224,1.241 0.494,2.781 1.391,4.262l8.882,13.816c0.807,1.166 2.512,1.48 3.23,0.269l4.755,-7.626c0.538,-0.852 0.74,-2.49 0.718,-3.544c-0.021,-0.97 -0.224,-1.794 -0.852,-2.781l-10.407,-15.566c-1.121,-1.436 -2.332,-1.658 -3.903,0.135l-0,0Zm20.366,-1.301l-5.41,6.148c-0.583,0.852 -0.673,1.794 -0.09,2.781l5.321,6.099c0.404,0.494 0.852,0.718 1.615,0.718c0.673,0 1.121,-0.224 1.525,-0.718l5.233,-6.099c0.538,-0.763 0.583,-2.019 -0.09,-2.961l-4.425,-5.968c-0.852,-1.077 -2.647,-1.256 -3.678,0l0,0Zm0.179,18.347l-4.307,7.132c-0.269,0.538 -2.341,3.911 -2.341,4.987c0,1.48 3.194,0.92 5.122,0.934c2.414,0.017 9.331,0 9.331,0c1.436,-0.045 1.974,-1.839 1.032,-3.05l-6.863,-10.003c-0.449,-0.628 -0.718,-0.628 -0.942,-0.628c-0.314,0 -0.628,0.09 -1.032,0.628l0,0Z" fill="url(#logoGrad)"/>
-                <path d="M85.172,18.5l0,27c0,0.276 -0.224,0.5 -0.5,0.5c-0.276,0 -0.5,-0.224 -0.5,-0.5l0,-27c0,-0.276 0.224,-0.5 0.5,-0.5c0.276,0 0.5,0.224 0.5,0.5Z" fill="#fff" fill-opacity="0.22"/>
-                <path d="M103.697,23.496c-0.702,-2.765 -1.533,-5.461 -1.691,-6.23c-0.017,-0.083 -0.153,-0.748 0.596,-0.883c0.239,-0.043 5.841,-0.019 5.989,-0.015c1.427,0.042 1.403,1.054 1.552,1.701c0.357,1.539 0.464,1.515 0.725,2.71c0.156,0.714 2.513,9.716 2.584,9.968c0.206,0.722 0.121,1.551 0.664,1.515c0.401,-0.027 0.263,-0.207 0.581,-1.009c0.189,-0.477 6.38,-12.266 6.666,-12.756c0.761,-1.299 2.162,-0.914 2.613,-0.374c0.178,0.213 0.297,0.357 1.642,3.032c0.938,1.864 4.242,8.159 4.668,8.912c0.452,0.798 0.966,2.117 1.007,2.143c0.025,0.015 0.521,0.004 0.539,-0.012c0.165,-0.148 -0.014,-0.534 0.574,-2.566c0.392,-1.355 0.333,-1.362 0.696,-2.725c1.324,-4.967 1.49,-5.916 1.998,-7.706c0.604,-2.131 0.478,-2.936 2.436,-2.879c4.335,0.126 5.282,-0.078 5.57,0.175c0.372,0.326 0.225,0.897 -0.31,2.754c-0.005,0.017 -1.677,6.153 -1.781,6.493c-0.84,2.761 -0.8,2.763 -4.268,15.445c-1.104,4.036 -0.888,4.696 -2.776,4.742c-2.54,0.062 -2.883,-0.073 -3.204,-0.479c-0.768,-0.972 -5.666,-10.595 -6.935,-12.845c-0.424,-0.751 -0.596,-1.316 -0.858,-1.611c-0.522,-0.587 -0.908,0.654 -1.03,0.872c-0.178,0.315 -0.507,0.9 -2.139,3.983c-0.57,1.077 -0.529,1.091 -1.093,2.171c-0.102,0.196 -1.153,2.21 -1.29,2.452c-1.071,1.893 -2.302,4.871 -2.945,5.254c-0.655,0.39 -3.714,0.186 -3.921,0.126c-0.141,-0.041 -0.797,0.053 -1.458,-3.148c-0.323,-1.566 -0.501,-1.513 -0.865,-3.068c-0.407,-1.74 -0.519,-1.704 -0.966,-3.43c-0.414,-1.594 -0.463,-1.573 -0.896,-3.155c-1.754,-6.4 -1.826,-6.38 -1.961,-6.941c-0.318,-1.326 -0.285,-1.328 -0.711,-2.618Z" fill="#fff"/>
-                <path d="M149.833,45.949c-1.822,0.005 -2.795,0.067 -3.089,-0.218c-0.264,-0.256 -0.206,-0.317 -0.207,-7.239c0,-1.049 -0,-13.015 0.01,-13.115c0.113,-1.018 0.572,-0.828 4.87,-0.832c1.966,-0.002 2.689,-0.162 2.799,0.84c0.055,0.493 -0.047,0.495 0.033,12.722c0.004,0.555 0.04,6.11 -0.031,6.94c-0.09,1.055 -0.556,0.891 -4.386,0.902Z" fill="#fff"/>
-                <path d="M167.17,36.716c-0.111,0.055 -0.24,0.073 -0.351,0.129c-0.275,0.136 -0.207,0.196 -0.188,0.503c0.081,1.343 0.105,1.333 0.102,2.685c-0.013,5.239 0.18,5.716 -0.62,5.881c-0.605,0.125 -5.492,0.044 -5.97,0.037c-1.059,-0.018 -1.127,-0.257 -1.122,-1.289c0.015,-3.148 -0.012,-22.874 0.003,-24.283c0.043,-4.009 -0.18,-4.413 0.739,-4.521c0.263,-0.031 5.77,-0.016 5.931,-0.013c0.727,0.014 0.879,0.001 1.032,0.698c0.029,0.133 0.008,12.395 0.006,13.473c-0.002,1.321 -0.236,1.583 0.218,1.769c0.295,0.12 0.29,0.011 0.399,-0.123c1.497,-1.836 1.506,-1.82 3.143,-3.545c2.849,-3.001 2.656,-3.522 4.328,-3.542c0.508,-0.006 4.338,-0.054 6.354,-0.025c0.793,0.011 1.034,0.345 0.466,0.89c-0.519,0.498 -6.09,6.496 -6.446,6.866c-1.103,1.146 -1.6,1.433 -0.849,2.388c0.193,0.245 2.042,2.598 2.424,3.055c0.648,0.775 2.391,3.018 3.309,4.136c2.415,2.941 2.44,2.919 2.631,3.188c0.036,0.051 0.345,0.486 0.071,0.774c-0.098,0.103 -1.116,0.094 -1.214,0.093c-1.559,-0.013 -6.646,0.075 -7.158,-0.071c-0.15,-0.043 -0.488,-0.14 -1.385,-1.345c-3.128,-4.201 -5.245,-6.64 -5.851,-7.808Z" fill="#fff"/>
-                <path d="M190.613,45.949c-2.617,0.004 -3.424,0.127 -3.616,-0.503c-0.111,-0.363 -0.018,-12.229 -0.036,-19.673c-0.004,-1.423 0.576,-1.238 2.462,-1.232c1.239,0.004 1.991,0.015 3.171,0.013c1.47,-0.002 2.034,-0.209 2.041,1.218c0.008,1.573 0.102,19.116 -0.059,19.658c-0.181,0.609 -0.814,0.508 -3.963,0.518Z" fill="#fff"/>
-                <path d="M154.329,17.63c0.033,0.146 0.754,1.841 -0.743,3.656c-2.557,3.102 -8.059,0.93 -7.242,-3.203c0.641,-3.239 5.563,-4.459 7.683,-1.073c0.029,0.047 0.022,0.046 0.302,0.621Z" fill="#fff"/>
-                <path d="M226.455,18.502c-0.121,0.159 -2.757,3.964 -2.902,4.151c-0.405,0.523 -4.493,6.357 -4.673,6.614c-0.929,1.315 -1.496,1.442 -0.588,2.773c0.595,0.872 8.722,11.967 9.235,12.651c0.494,0.66 0.505,0.654 0.518,0.724c0.078,0.429 0.026,0.517 -0.422,0.563c-0.212,0.022 -5.517,-0.006 -5.997,-0.009c-1.418,-0.007 -1.31,-0.38 -2.493,-2.008c-2.058,-2.835 -2.059,-2.828 -4.046,-5.711c-0.467,-0.678 -0.528,-0.631 -0.967,-1.327c-0.146,-0.232 -0.161,-0.238 -0.436,-0.246c-0.409,-0.013 -0.395,0.071 -0.625,0.399c-0.322,0.458 -3.956,5.626 -4.025,5.722c-1.953,2.735 -1.834,3.155 -3.278,3.166c-0.072,0.001 -5.436,0.003 -5.567,0.01c-0.394,0.023 -0.46,0.102 -0.672,-0.219c-0.058,-0.088 -0.079,-0.211 -0.046,-0.311c0.057,-0.167 1.707,-2.211 5.366,-7.414c0.603,-0.856 4.675,-6.363 4.725,-6.548c0.163,-0.589 -0.339,-1.004 -0.634,-1.468c-0.17,-0.268 -8.253,-11.512 -9.141,-12.706c-0.269,-0.361 -0.4,-0.328 -0.344,-0.776c0.047,-0.379 0.409,-0.249 3.541,-0.248c3.474,0.001 3.628,-0.115 4.285,0.678c0.323,0.39 3.786,5.43 4.888,6.841c0.399,0.51 1.189,1.832 1.24,1.857c0.084,0.04 0.187,-0.015 0.28,-0.02c0.272,-0.013 0.286,-0.025 0.412,-0.252c0.081,-0.145 5.876,-8.683 6.316,-8.907c0.687,-0.35 2.617,-0.145 6.369,-0.207c0.057,-0.001 0.624,-0.01 0.711,0.034c0.256,0.13 0.133,0.561 0.119,0.609c-0.043,0.149 -0.145,0.087 -1.147,1.584Z" fill="#24dbd7"/>
-                <path d="M193.104,22.748c-0.976,0.463 -0.96,0.553 -2.044,0.596c-4.283,0.172 -6.531,-5.127 -2.643,-7.835c1.919,-1.337 6.185,-0.858 6.76,3.134c0.129,0.891 -0.281,2.886 -1.594,3.772c-0.242,0.164 -0.233,0.162 -0.478,0.332Z" fill="#fff"/>
+                <path
+                    d="M260,8l0,48c0,4.415 -3.585,8 -8,8l-244,0c-4.415,0 -8,-3.585 -8,-8l0,-48c0,-4.415 3.585,-8 8,-8l244,0c4.415,0 8,3.585 8,8Z"
+                    fill="#040806" />
+                <path
+                    d="M12.639,20.75l0,1.436c0,1.66 0.359,2.692 1.211,4.351l10.856,20.59c0.718,1.211 2.512,1.48 3.185,0.224l4.262,-6.908c1.121,-1.57 1.211,-4.441 -0.135,-6.415l-10.721,-15.835c-1.346,-1.884 -2.467,-2.422 -3.992,-2.422c-2.736,0 -4.665,2.108 -4.665,4.979l0,-0Zm22.743,-2.781c-0.799,0.912 -2.377,3.544 -2.377,3.544c-0.852,1.391 -1.151,3.058 -1.391,4.307c-0.2,1.043 -0.234,2.14 -0.045,3.185c0.224,1.241 0.494,2.781 1.391,4.262l8.882,13.816c0.807,1.166 2.512,1.48 3.23,0.269l4.755,-7.626c0.538,-0.852 0.74,-2.49 0.718,-3.544c-0.021,-0.97 -0.224,-1.794 -0.852,-2.781l-10.407,-15.566c-1.121,-1.436 -2.332,-1.658 -3.903,0.135l-0,0Zm20.366,-1.301l-5.41,6.148c-0.583,0.852 -0.673,1.794 -0.09,2.781l5.321,6.099c0.404,0.494 0.852,0.718 1.615,0.718c0.673,0 1.121,-0.224 1.525,-0.718l5.233,-6.099c0.538,-0.763 0.583,-2.019 -0.09,-2.961l-4.425,-5.968c-0.852,-1.077 -2.647,-1.256 -3.678,0l0,0Zm0.179,18.347l-4.307,7.132c-0.269,0.538 -2.341,3.911 -2.341,4.987c0,1.48 3.194,0.92 5.122,0.934c2.414,0.017 9.331,0 9.331,0c1.436,-0.045 1.974,-1.839 1.032,-3.05l-6.863,-10.003c-0.449,-0.628 -0.718,-0.628 -0.942,-0.628c-0.314,0 -0.628,0.09 -1.032,0.628l0,0Z"
+                    fill="url(#logoGrad)" />
+                <path
+                    d="M85.172,18.5l0,27c0,0.276 -0.224,0.5 -0.5,0.5c-0.276,0 -0.5,-0.224 -0.5,-0.5l0,-27c0,-0.276 0.224,-0.5 0.5,-0.5c0.276,0 0.5,0.224 0.5,0.5Z"
+                    fill="#fff" fill-opacity="0.22" />
+                <path
+                    d="M103.697,23.496c-0.702,-2.765 -1.533,-5.461 -1.691,-6.23c-0.017,-0.083 -0.153,-0.748 0.596,-0.883c0.239,-0.043 5.841,-0.019 5.989,-0.015c1.427,0.042 1.403,1.054 1.552,1.701c0.357,1.539 0.464,1.515 0.725,2.71c0.156,0.714 2.513,9.716 2.584,9.968c0.206,0.722 0.121,1.551 0.664,1.515c0.401,-0.027 0.263,-0.207 0.581,-1.009c0.189,-0.477 6.38,-12.266 6.666,-12.756c0.761,-1.299 2.162,-0.914 2.613,-0.374c0.178,0.213 0.297,0.357 1.642,3.032c0.938,1.864 4.242,8.159 4.668,8.912c0.452,0.798 0.966,2.117 1.007,2.143c0.025,0.015 0.521,0.004 0.539,-0.012c0.165,-0.148 -0.014,-0.534 0.574,-2.566c0.392,-1.355 0.333,-1.362 0.696,-2.725c1.324,-4.967 1.49,-5.916 1.998,-7.706c0.604,-2.131 0.478,-2.936 2.436,-2.879c4.335,0.126 5.282,-0.078 5.57,0.175c0.372,0.326 0.225,0.897 -0.31,2.754c-0.005,0.017 -1.677,6.153 -1.781,6.493c-0.84,2.761 -0.8,2.763 -4.268,15.445c-1.104,4.036 -0.888,4.696 -2.776,4.742c-2.54,0.062 -2.883,-0.073 -3.204,-0.479c-0.768,-0.972 -5.666,-10.595 -6.935,-12.845c-0.424,-0.751 -0.596,-1.316 -0.858,-1.611c-0.522,-0.587 -0.908,0.654 -1.03,0.872c-0.178,0.315 -0.507,0.9 -2.139,3.983c-0.57,1.077 -0.529,1.091 -1.093,2.171c-0.102,0.196 -1.153,2.21 -1.29,2.452c-1.071,1.893 -2.302,4.871 -2.945,5.254c-0.655,0.39 -3.714,0.186 -3.921,0.126c-0.141,-0.041 -0.797,0.053 -1.458,-3.148c-0.323,-1.566 -0.501,-1.513 -0.865,-3.068c-0.407,-1.74 -0.519,-1.704 -0.966,-3.43c-0.414,-1.594 -0.463,-1.573 -0.896,-3.155c-1.754,-6.4 -1.826,-6.38 -1.961,-6.941c-0.318,-1.326 -0.285,-1.328 -0.711,-2.618Z"
+                    fill="#fff" />
+                <path
+                    d="M149.833,45.949c-1.822,0.005 -2.795,0.067 -3.089,-0.218c-0.264,-0.256 -0.206,-0.317 -0.207,-7.239c0,-1.049 -0,-13.015 0.01,-13.115c0.113,-1.018 0.572,-0.828 4.87,-0.832c1.966,-0.002 2.689,-0.162 2.799,0.84c0.055,0.493 -0.047,0.495 0.033,12.722c0.004,0.555 0.04,6.11 -0.031,6.94c-0.09,1.055 -0.556,0.891 -4.386,0.902Z"
+                    fill="#fff" />
+                <path
+                    d="M167.17,36.716c-0.111,0.055 -0.24,0.073 -0.351,0.129c-0.275,0.136 -0.207,0.196 -0.188,0.503c0.081,1.343 0.105,1.333 0.102,2.685c-0.013,5.239 0.18,5.716 -0.62,5.881c-0.605,0.125 -5.492,0.044 -5.97,0.037c-1.059,-0.018 -1.127,-0.257 -1.122,-1.289c0.015,-3.148 -0.012,-22.874 0.003,-24.283c0.043,-4.009 -0.18,-4.413 0.739,-4.521c0.263,-0.031 5.77,-0.016 5.931,-0.013c0.727,0.014 0.879,0.001 1.032,0.698c0.029,0.133 0.008,12.395 0.006,13.473c-0.002,1.321 -0.236,1.583 0.218,1.769c0.295,0.12 0.29,0.011 0.399,-0.123c1.497,-1.836 1.506,-1.82 3.143,-3.545c2.849,-3.001 2.656,-3.522 4.328,-3.542c0.508,-0.006 4.338,-0.054 6.354,-0.025c0.793,0.011 1.034,0.345 0.466,0.89c-0.519,0.498 -6.09,6.496 -6.446,6.866c-1.103,1.146 -1.6,1.433 -0.849,2.388c0.193,0.245 2.042,2.598 2.424,3.055c0.648,0.775 2.391,3.018 3.309,4.136c2.415,2.941 2.44,2.919 2.631,3.188c0.036,0.051 0.345,0.486 0.071,0.774c-0.098,0.103 -1.116,0.094 -1.214,0.093c-1.559,-0.013 -6.646,0.075 -7.158,-0.071c-0.15,-0.043 -0.488,-0.14 -1.385,-1.345c-3.128,-4.201 -5.245,-6.64 -5.851,-7.808Z"
+                    fill="#fff" />
+                <path
+                    d="M190.613,45.949c-2.617,0.004 -3.424,0.127 -3.616,-0.503c-0.111,-0.363 -0.018,-12.229 -0.036,-19.673c-0.004,-1.423 0.576,-1.238 2.462,-1.232c1.239,0.004 1.991,0.015 3.171,0.013c1.47,-0.002 2.034,-0.209 2.041,1.218c0.008,1.573 0.102,19.116 -0.059,19.658c-0.181,0.609 -0.814,0.508 -3.963,0.518Z"
+                    fill="#fff" />
+                <path
+                    d="M154.329,17.63c0.033,0.146 0.754,1.841 -0.743,3.656c-2.557,3.102 -8.059,0.93 -7.242,-3.203c0.641,-3.239 5.563,-4.459 7.683,-1.073c0.029,0.047 0.022,0.046 0.302,0.621Z"
+                    fill="#fff" />
+                <path
+                    d="M226.455,18.502c-0.121,0.159 -2.757,3.964 -2.902,4.151c-0.405,0.523 -4.493,6.357 -4.673,6.614c-0.929,1.315 -1.496,1.442 -0.588,2.773c0.595,0.872 8.722,11.967 9.235,12.651c0.494,0.66 0.505,0.654 0.518,0.724c0.078,0.429 0.026,0.517 -0.422,0.563c-0.212,0.022 -5.517,-0.006 -5.997,-0.009c-1.418,-0.007 -1.31,-0.38 -2.493,-2.008c-2.058,-2.835 -2.059,-2.828 -4.046,-5.711c-0.467,-0.678 -0.528,-0.631 -0.967,-1.327c-0.146,-0.232 -0.161,-0.238 -0.436,-0.246c-0.409,-0.013 -0.395,0.071 -0.625,0.399c-0.322,0.458 -3.956,5.626 -4.025,5.722c-1.953,2.735 -1.834,3.155 -3.278,3.166c-0.072,0.001 -5.436,0.003 -5.567,0.01c-0.394,0.023 -0.46,0.102 -0.672,-0.219c-0.058,-0.088 -0.079,-0.211 -0.046,-0.311c0.057,-0.167 1.707,-2.211 5.366,-7.414c0.603,-0.856 4.675,-6.363 4.725,-6.548c0.163,-0.589 -0.339,-1.004 -0.634,-1.468c-0.17,-0.268 -8.253,-11.512 -9.141,-12.706c-0.269,-0.361 -0.4,-0.328 -0.344,-0.776c0.047,-0.379 0.409,-0.249 3.541,-0.248c3.474,0.001 3.628,-0.115 4.285,0.678c0.323,0.39 3.786,5.43 4.888,6.841c0.399,0.51 1.189,1.832 1.24,1.857c0.084,0.04 0.187,-0.015 0.28,-0.02c0.272,-0.013 0.286,-0.025 0.412,-0.252c0.081,-0.145 5.876,-8.683 6.316,-8.907c0.687,-0.35 2.617,-0.145 6.369,-0.207c0.057,-0.001 0.624,-0.01 0.711,0.034c0.256,0.13 0.133,0.561 0.119,0.609c-0.043,0.149 -0.145,0.087 -1.147,1.584Z"
+                    fill="#24dbd7" />
+                <path
+                    d="M193.104,22.748c-0.976,0.463 -0.96,0.553 -2.044,0.596c-4.283,0.172 -6.531,-5.127 -2.643,-7.835c1.919,-1.337 6.185,-0.858 6.76,3.134c0.129,0.891 -0.281,2.886 -1.594,3.772c-0.242,0.164 -0.233,0.162 -0.478,0.332Z"
+                    fill="#fff" />
                 <defs>
-                    <linearGradient id="logoGrad" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(-1.341276,32.378592,-32.378592,-1.341276,38.737952,15.766862)">
-                        <stop offset="0" stop-color="#22d3ee"/>
-                        <stop offset="1" stop-color="#2aeda0"/>
+                    <linearGradient id="logoGrad" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse"
+                        gradientTransform="matrix(-1.341276,32.378592,-32.378592,-1.341276,38.737952,15.766862)">
+                        <stop offset="0" stop-color="#22d3ee" />
+                        <stop offset="1" stop-color="#2aeda0" />
                     </linearGradient>
                 </defs>
             </svg>
@@ -1474,7 +1929,10 @@
             <a href="#desktop">Desktop</a>
             <a href="#mcp">MCP Tools</a>
             <a href="https://github.com/vkfolio/wikiX.git" class="github-nav-btn" target="_blank">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.373 0 12c0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.757-1.333-1.757-1.089-.744.084-.729.084-.729 1.205.084 1.84 1.237 1.84 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.762-1.605-2.665-.3-5.467-1.332-5.467-5.93 0-1.31.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.29-1.552 3.297-1.23 3.297-1.23.653 1.652.242 2.873.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.628-5.479 5.921.43.372.823 1.102.823 2.222 0 1.606-.015 2.898-.015 3.293 0 .322.216.694.825.576C20.565 21.796 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path
+                        d="M12 0C5.37 0 0 5.373 0 12c0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.757-1.333-1.757-1.089-.744.084-.729.084-.729 1.205.084 1.84 1.237 1.84 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.762-1.605-2.665-.3-5.467-1.332-5.467-5.93 0-1.31.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.29-1.552 3.297-1.23 3.297-1.23.653 1.652.242 2.873.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.628-5.479 5.921.43.372.823 1.102.823 2.222 0 1.606-.015 2.898-.015 3.293 0 .322.216.694.825.576C20.565 21.796 24 17.3 24 12c0-6.627-5.373-12-12-12z" />
+                </svg>
                 GitHub
             </a>
         </div>
@@ -1488,16 +1946,22 @@
             <span class="accent">remembers time</span>
         </h1>
         <p class="hero-subtitle">
-            A temporal-graph engine for code, documents, and conversations. 
+            A temporal-graph engine for code, documents, and conversations.
             Drop a folder in. Get a queryable knowledge graph that never forgets what changed.
         </p>
         <div class="hero-cta-group">
             <a href="https://github.com/vkfolio/wikiX.git" class="btn btn-primary magnetic" target="_blank">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7 2V13H10V22L17 10H13L16 2H7Z" fill="currentColor" />
+                </svg>
                 Engine on GitHub
             </a>
             <a href="https://github.com/vkfolio/WikiX_App" class="btn btn-secondary magnetic" target="_blank">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M21 2H3C1.9 2 1 2.9 1 4V16C1 17.1 1.9 18 3 18H10V20H8V22H16V20H14V18H21C22.1 18 23 17.1 23 16V4C23 2.9 22.1 2 21 2ZM21 16H3V4H21V16Z"
+                        fill="currentColor" />
+                </svg>
                 Desktop App
             </a>
         </div>
@@ -1506,7 +1970,11 @@
             <span class="prompt">$</span>
             <span class="install-cmd">git clone https://github.com/vkfolio/wikiX.git &amp;&amp; make up-host</span>
             <span class="copy-btn" title="Copy to clipboard">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                </svg>
             </span>
         </div>
 
@@ -1543,12 +2011,12 @@
                     <div class="code-dot" style="background:#ff5f57"></div>
                     <div class="code-dot" style="background:#febc2e"></div>
                     <div class="code-dot" style="background:#28c840"></div>
-                    <span>wikiX Desktop — graph view</span>
-                    <div class="temporal-selector" id="temporalSelector">
+                    <span>Temporal Knowledge Engine</span>
+                    <!-- <div class="temporal-selector" id="temporalSelector">
                         <span class="ts-dot"></span>
                         <span id="tsDate">as of: 2026-04-01</span>
                         <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-                    </div>
+                    </div> -->
                 </div>
                 <canvas id="hero-graph-canvas"></canvas>
             </div>
@@ -1559,13 +2027,19 @@
         <div class="section-header reveal">
             <span class="section-tag">The Stack</span>
             <h2 class="section-title">Two layers. One graph.</h2>
-            <p class="section-desc">Use the engine headlessly from your agents, or run the desktop app for the polished daily-driver experience.</p>
+            <p class="section-desc">Use the engine headlessly from your agents, or run the desktop app for the polished
+                daily-driver experience.</p>
         </div>
         <div class="product-grid">
             <div class="product-card reveal stagger-1">
-                <div class="product-icon">⚡</div>
+                <div class="product-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7 2V13H10V22L17 10H13L16 2H7Z" fill="currentColor" />
+                    </svg>
+                </div>
                 <h3>wikiX Engine</h3>
-                <p>The open-core temporal knowledge engine. Self-host on a single port with Docker. Drive it from Claude Code, Cursor, or any MCP client.</p>
+                <p>The open-core temporal knowledge engine. Self-host on a single port with Docker. Drive it from Claude
+                    Code, Cursor, or any MCP client.</p>
                 <ul class="product-features">
                     <li>Single-port Caddy ingress</li>
                     <li>13-tool MCP server surface</li>
@@ -1573,12 +2047,20 @@
                     <li>Hybrid retrieval: pgvector + graph</li>
                     <li>AST-first code extraction</li>
                 </ul>
-                <a href="https://github.com/vkfolio/wikiX.git" class="product-link" target="_blank">github.com/vkfolio/wikiX →</a>
+                <a href="https://github.com/vkfolio/wikiX.git" class="product-link"
+                    target="_blank">github.com/vkfolio/wikiX →</a>
             </div>
             <div class="product-card reveal stagger-2">
-                <div class="product-icon">◈</div>
+                <div class="product-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M21 2H3C1.9 2 1 2.9 1 4V16C1 17.1 1.9 18 3 18H10V20H8V22H16V20H14V18H21C22.1 18 23 17.1 23 16V4C23 2.9 22.1 2 21 2ZM21 16H3V4H21V16Z"
+                            fill="currentColor" />
+                    </svg>
+                </div>
                 <h3>wikiX Desktop</h3>
-                <p>The native daily-driver. Cytoscape graph viewer, syntax-highlighted book reader, streaming chat with tool cards, and an MCP Gateway.</p>
+                <p>The native daily-driver. Graph viewer, syntax-highlighted book reader, streaming chat with
+                    tool cards, and an MCP Gateway.</p>
                 <ul class="product-features">
                     <li>Native graph visualization</li>
                     <li>Mermaid + KaTeX rendering</li>
@@ -1586,7 +2068,8 @@
                     <li>Smart corpus folder watcher</li>
                     <li>Insights dashboard + spend telemetry</li>
                 </ul>
-                <a href="https://github.com/vkfolio/WikiX_App" class="product-link" target="_blank">github.com/vkfolio/WikiX_App →</a>
+                <a href="https://github.com/vkfolio/WikiX_App" class="product-link"
+                    target="_blank">github.com/vkfolio/WikiX_App →</a>
             </div>
         </div>
     </section>
@@ -1595,7 +2078,8 @@
         <div class="section-header reveal">
             <span class="section-tag">Agent Integration</span>
             <h2 class="section-title">One config. All IDEs.</h2>
-            <p class="section-desc">Point Claude Code, Cursor, Codex, or Aider at the MCP server and start querying your knowledge graph immediately.</p>
+            <p class="section-desc">Point Claude Code, Cursor, Codex, or Aider at the MCP server and start querying your
+                knowledge graph immediately.</p>
         </div>
         <div class="code-grid reveal-scale">
             <div class="code-window">
@@ -1606,18 +2090,38 @@
                     <span class="code-title">mcp.json</span>
                 </div>
                 <div class="code-body">
-                    <div class="code-line"><span class="code-line-num">1</span><span><span class="code-keyword">{</span></span></div>
-                    <div class="code-line"><span class="code-line-num">2</span><span>  <span class="code-string">"mcpServers"</span><span class="code-keyword">: {</span></span></div>
-                    <div class="code-line"><span class="code-line-num">3</span><span>    <span class="code-string">"wikix"</span><span class="code-keyword">: {</span></span></div>
-                    <div class="code-line"><span class="code-line-num">4</span><span>      <span class="code-string">"command"</span><span class="code-keyword">:</span> <span class="code-string">"npx"</span><span class="code-keyword">,</span></span></div>
-                    <div class="code-line"><span class="code-line-num">5</span><span>      <span class="code-string">"args"</span><span class="code-keyword">: [</span><span class="code-string">"-y"</span><span class="code-keyword">,</span> <span class="code-string">"@modelcontextprotocol/server-http"</span><span class="code-keyword">],</span></span></div>
-                    <div class="code-line"><span class="code-line-num">6</span><span>      <span class="code-string">"env"</span><span class="code-keyword">: {</span></span></div>
-                    <div class="code-line"><span class="code-line-num">7</span><span>        <span class="code-string">"WIKIX_URL"</span><span class="code-keyword">:</span> <span class="code-string">"http://localhost:8080"</span><span class="code-keyword">,</span></span></div>
-                    <div class="code-line"><span class="code-line-num">8</span><span>        <span class="code-string">"WIKIX_TOKEN"</span><span class="code-keyword">:</span> <span class="code-string">"your-static-bearer-token"</span></span></div>
-                    <div class="code-line"><span class="code-line-num">9</span><span>      <span class="code-keyword">}</span></span></div>
-                    <div class="code-line"><span class="code-line-num">10</span><span>    <span class="code-keyword">}</span></span></div>
-                    <div class="code-line"><span class="code-line-num">11</span><span>  <span class="code-keyword">}</span></span></div>
-                    <div class="code-line"><span class="code-line-num">12</span><span><span class="code-keyword">}</span></span></div>
+                    <div class="code-line"><span class="code-line-num">1</span><span><span
+                                class="code-keyword">{</span></span></div>
+                    <div class="code-line"><span class="code-line-num">2</span><span> <span
+                                class="code-string">"mcpServers"</span><span class="code-keyword">: {</span></span>
+                    </div>
+                    <div class="code-line"><span class="code-line-num">3</span><span> <span
+                                class="code-string">"wikix"</span><span class="code-keyword">: {</span></span></div>
+                    <div class="code-line"><span class="code-line-num">4</span><span> <span
+                                class="code-string">"command"</span><span class="code-keyword">:</span> <span
+                                class="code-string">"npx"</span><span class="code-keyword">,</span></span></div>
+                    <div class="code-line"><span class="code-line-num">5</span><span> <span
+                                class="code-string">"args"</span><span class="code-keyword">: [</span><span
+                                class="code-string">"-y"</span><span class="code-keyword">,</span> <span
+                                class="code-string">"@modelcontextprotocol/server-http"</span><span
+                                class="code-keyword">],</span></span></div>
+                    <div class="code-line"><span class="code-line-num">6</span><span> <span
+                                class="code-string">"env"</span><span class="code-keyword">: {</span></span></div>
+                    <div class="code-line"><span class="code-line-num">7</span><span> <span
+                                class="code-string">"WIKIX_URL"</span><span class="code-keyword">:</span> <span
+                                class="code-string">"http://localhost:8080"</span><span
+                                class="code-keyword">,</span></span></div>
+                    <div class="code-line"><span class="code-line-num">8</span><span> <span
+                                class="code-string">"WIKIX_TOKEN"</span><span class="code-keyword">:</span> <span
+                                class="code-string">"your-static-bearer-token"</span></span></div>
+                    <div class="code-line"><span class="code-line-num">9</span><span> <span
+                                class="code-keyword">}</span></span></div>
+                    <div class="code-line"><span class="code-line-num">10</span><span> <span
+                                class="code-keyword">}</span></span></div>
+                    <div class="code-line"><span class="code-line-num">11</span><span> <span
+                                class="code-keyword">}</span></span></div>
+                    <div class="code-line"><span class="code-line-num">12</span><span><span
+                                class="code-keyword">}</span></span></div>
                 </div>
             </div>
             <div class="transcript-window">
@@ -1630,21 +2134,29 @@
                 <div class="transcript-body">
                     <div class="tx-tool-call">
                         <span class="tx-arrow">▸</span>
-                        <span><span style="color:var(--accent-violet)">search_wiki</span>(<span style="color:#98c379">"event sourcing"</span>)</span>
+                        <span><span style="color:var(--accent-violet)">search_wiki</span>(<span
+                                style="color:#98c379">"event sourcing"</span>)</span>
                     </div>
                     <div class="tx-meta">3 chunks · 1 entity · 11ms</div>
                     <div class="tx-result">
-                        <div style="color:var(--text-primary);margin-bottom:0.375rem">"Event sourcing stores state as a sequence of immutable events rather than a mutable snapshot — each append is a fact, never a mutation."</div>
+                        <div style="color:var(--text-primary);margin-bottom:0.375rem">"Event sourcing stores state as a
+                            sequence of immutable events rather than a mutable snapshot — each append is a fact, never a
+                            mutation."</div>
                         <div class="tx-cite"><span class="tx-cite-dot"></span>chap.4 · valid as of 2026-04-21</div>
                     </div>
                     <div class="tx-tool-call">
                         <span class="tx-arrow">▸</span>
-                        <span><span style="color:var(--accent-violet)">code_lookup</span>(<span style="color:#98c379">"EventStore"</span>)</span>
+                        <span><span style="color:var(--accent-violet)">code_lookup</span>(<span
+                                style="color:#98c379">"EventStore"</span>)</span>
                     </div>
                     <div class="tx-meta">1 entity · 2-hop neighbors · backend/api/store.go:42</div>
                     <div class="tx-result">
-                        <div style="color:var(--text-primary);margin-bottom:0.375rem"><span style="color:#61afef">type</span> <span style="color:#e5c07b">EventStore</span> <span style="color:var(--accent-teal)">struct</span> { db *pgxpool.Pool; graph *neo4j.Driver }</div>
-                        <div class="tx-cite"><span class="tx-cite-dot"></span>EXTRACTED · confidence 1.0 · valid as of 2026-03-10</div>
+                        <div style="color:var(--text-primary);margin-bottom:0.375rem"><span
+                                style="color:#61afef">type</span> <span style="color:#e5c07b">EventStore</span> <span
+                                style="color:var(--accent-teal)">struct</span> { db *pgxpool.Pool; graph *neo4j.Driver }
+                        </div>
+                        <div class="tx-cite"><span class="tx-cite-dot"></span>EXTRACTED · confidence 1.0 · valid as of
+                            2026-03-10</div>
                     </div>
                     <div class="tx-follow">
                         <span class="tx-plus">+</span>
@@ -1664,99 +2176,71 @@
             <div class="feature-card reveal stagger-1">
                 <span class="feature-number">01</span>
                 <h3>Bi-Temporal Correctness</h3>
-                <p>Every fact carries a validity window. Query the graph "as of last Tuesday" and get the world exactly as it was. Contradictions invalidate old edges—they don't erase them.</p>
+                <p>Every fact carries a validity window. Query the graph "as of last Tuesday" and get the world exactly
+                    as it was. Contradictions invalidate old edges—they don't erase them.</p>
             </div>
             <div class="feature-card reveal stagger-2">
                 <span class="feature-number">02</span>
                 <h3>AST-First Extraction</h3>
-                <p>Tree-sitter parsers for Python, TypeScript, Go, Rust, Java, and C/C++ produce deterministic code graphs. Every symbol has a precise source span and line range.</p>
+                <p>Tree-sitter parsers for Python, TypeScript, Go, Rust, Java, and C/C++ produce deterministic code
+                    graphs. Every symbol has a precise source span and line range.</p>
             </div>
             <div class="feature-card reveal stagger-3">
                 <span class="feature-number">03</span>
                 <h3>Confidence Taxonomy</h3>
-                <p>EXTRACTED beats INFERRED beats AMBIGUOUS. A hallucinated edge cannot silently overwrite tree-sitter ground truth. It becomes a reviewable ConflictEvent instead.</p>
+                <p>EXTRACTED beats INFERRED beats AMBIGUOUS. A hallucinated edge cannot silently overwrite tree-sitter
+                    ground truth. It becomes a reviewable ConflictEvent instead.</p>
             </div>
             <div class="feature-card reveal stagger-4">
                 <span class="feature-number">04</span>
                 <h3>Two-Pool Retrieval</h3>
-                <p>Chunks live in pgvector + tsvector. Entities and edges live in the temporal graph. Each pool gets its own cross-encoder rerank. Returned side-by-side, never blindly fused.</p>
+                <p>Chunks live in pgvector + tsvector. Entities and edges live in the temporal graph. Each pool gets its
+                    own cross-encoder rerank. Returned side-by-side, never blindly fused.</p>
             </div>
             <div class="feature-card reveal stagger-5">
                 <span class="feature-number">05</span>
                 <h3>Wiki Book Distillation</h3>
-                <p>Every wiki auto-distills into chapters bucketed by Leiden community detection. A cite_check lint pass pills uncited paragraphs as *[cite needed]*.</p>
+                <p>Every wiki auto-distills into chapters bucketed by Leiden community detection. A cite_check lint pass
+                    pills uncited paragraphs as *[cite needed]*.</p>
             </div>
             <div class="feature-card reveal stagger-6">
                 <span class="feature-number">06</span>
                 <h3>Incremental AST Diff</h3>
-                <p>Re-running over an unchanged file is free. When a file edits, we walk the AST diff, emit a delta episode, and surgically re-embed only what changed.</p>
+                <p>Re-running over an unchanged file is free. When a file edits, we walk the AST diff, emit a delta
+                    episode, and surgically re-embed only what changed.</p>
             </div>
         </div>
     </section>
 
     <section class="showcase" id="desktop">
-        <div class="showcase-content">
-            <div class="showcase-visual reveal-left">
-                <div class="showcase-screen">
+        <div class="showcase-content" style="grid-template-columns:1fr;max-width:1000px;">
+            <div class="showcase-visual reveal-left" style="aspect-ratio:16/9;width:100%;">
+                <div class="showcase-screen" style="width:100%;height:100%;">
                     <div class="screen-header">
-                        <div class="screen-dot"></div>
-                        <div class="screen-dot"></div>
-                        <div class="screen-dot"></div>
+                        <div class="screen-dot" style="background:#ff5f57"></div>
+                        <div class="screen-dot" style="background:#febc2e"></div>
+                        <div class="screen-dot" style="background:#28c840"></div>
                     </div>
-                    <div class="screen-body">
-                        <div class="screen-sidebar">
-                            <div class="screen-sidebar-label">CORPUS</div>
-                            <div class="screen-sidebar-nav">
-                                <div class="screen-nav-item"><span class="nav-dot"></span>&nbsp;Books</div>
-                                <div class="screen-nav-item active"><span class="nav-dot"></span>&nbsp;Graph</div>
-                                <div class="screen-nav-item"><span class="nav-dot"></span>&nbsp;Atlas</div>
-                                <div class="screen-nav-item"><span class="nav-dot"></span>&nbsp;Chat</div>
-                                <div class="screen-nav-item"><span class="nav-dot"></span>&nbsp;Gateway</div>
-                            </div>
-                        </div>
-                        <div class="screen-main">
-                            <div class="screen-graph">
-                                <!-- Nodes with labels -->
-                                <div class="screen-node" style="top:15%;left:24%;animation-delay:0s"></div>
-                                <span class="screen-node-label" style="top:7%;left:14%">EventSourcing</span>
-                                <div class="screen-node" style="top:40%;left:52%;background:var(--accent-violet);box-shadow:0 0 12px rgba(139,92,246,0.6),0 0 30px rgba(139,92,246,0.2);animation-delay:0.5s"></div>
-                                <span class="screen-node-label" style="top:32%;left:43%">TemporalGraph</span>
-                                <div class="screen-node" style="top:63%;left:20%;background:var(--accent-teal);box-shadow:0 0 12px rgba(42,237,160,0.6),0 0 30px rgba(42,237,160,0.2);animation-delay:1s"></div>
-                                <span class="screen-node-label" style="top:55%;left:12%">codebase</span>
-                                <div class="screen-node" style="top:22%;left:72%;animation-delay:1.5s"></div>
-                                <span class="screen-node-label" style="top:14%;left:64%">call_graph</span>
-                                <div class="screen-node" style="top:65%;left:58%;background:var(--accent-violet);box-shadow:0 0 12px rgba(139,92,246,0.6),0 0 30px rgba(139,92,246,0.2);animation-delay:2s"></div>
-                                <span class="screen-node-label" style="top:57%;left:51%">Episode</span>
-                                <div class="screen-node" style="top:42%;left:78%;animation-delay:2.5s"></div>
-                                <span class="screen-node-label" style="top:34%;left:71%">Chapter 4</span>
-                                <!-- Edges -->
-                                <div class="screen-edge" style="top:22%;left:26%;width:26%;transform:rotate(32deg)"></div>
-                                <div class="screen-edge" style="top:49%;left:24%;width:28%;transform:rotate(-28deg)"></div>
-                                <div class="screen-edge" style="top:35%;left:54%;width:18%;transform:rotate(36deg)"></div>
-                                <div class="screen-edge" style="top:54%;left:28%;width:30%;transform:rotate(12deg)"></div>
-                                <div class="screen-edge" style="top:46%;left:56%;width:22%;transform:rotate(-14deg)"></div>
-                                <!-- Temporal selector -->
-                                <div class="screen-temporal-bar">
-                                    <span class="ts-indicator"></span>
-                                    as of: 2026-04-01 &#9662;
-                                </div>
-                            </div>
-                        </div>
+                    <div class="screen-body" style="display:block;padding:0;overflow:hidden;flex:1;">
+                        <img src="app-screenshot.png" alt="wikiX Desktop — Overview" class="showcase-screenshot" style="width:100%;height:100%;object-fit:cover;object-position:top left;display:block;" />
                     </div>
                 </div>
             </div>
-            <div class="showcase-text reveal-right">
+            <div class="showcase-text reveal-right" style="text-align:center;align-items:center;display:flex;flex-direction:column;">
                 <span class="section-tag">Desktop App</span>
                 <h2>The graph, <br>in native form.</h2>
-                <p>wikiX Desktop wraps the entire engine in a polished native interface. Visualize your knowledge graph with Cytoscape.js, read auto-generated wiki books with syntax highlighting, and chat with your corpus through a streaming SSE interface.</p>
-                <ul class="showcase-list">
-                    <li><span class="check">✓</span> Cytoscape graph viewer with fcose + dagre layouts</li>
+                <p>wikiX Desktop wraps the entire engine in a polished native interface. Visualize your knowledge graph
+                    with Cytoscape.js, read auto-generated wiki books with syntax highlighting, and chat with your
+                    corpus through a streaming SSE interface.</p>
+                <ul class="showcase-list" style="display:flex;flex-wrap:wrap;justify-content:center;gap:0.5rem 2rem;">
+                    <li><span class="check">✓</span> Graph viewer with fcose + dagre layouts</li>
                     <li><span class="check">✓</span> Shiki-highlighted code blocks + Mermaid diagrams</li>
                     <li><span class="check">✓</span> MCP Gateway with per-IDE token grants</li>
                     <li><span class="check">✓</span> Insights tab: god-nodes, surprising connections, Atlas</li>
                     <li><span class="check">✓</span> Signed .dmg / .msi / .AppImage releases</li>
                 </ul>
-                <a href="https://github.com/vkfolio/WikiX_App" class="btn btn-primary magnetic" target="_blank" style="margin-top:0.5rem">
+                <a href="https://github.com/vkfolio/WikiX_App" class="btn btn-primary magnetic" target="_blank"
+                    style="margin-top:0.5rem">
                     Download Desktop
                 </a>
             </div>
@@ -1767,22 +2251,36 @@
         <div class="section-header reveal">
             <span class="section-tag">Agent Surface</span>
             <h2 class="section-title">13 tools. Zero config.</h2>
-            <p class="section-desc">The MCP server ships with the engine. Point Claude Code, Cursor, Codex, or Aider at it and start querying your knowledge graph.</p>
+            <p class="section-desc">The MCP server ships with the engine. Point Claude Code, Cursor, Codex, or Aider at
+                it and start querying your knowledge graph.</p>
         </div>
         <div class="mcp-grid">
-            <div class="mcp-item reveal stagger-1"><span class="tool-name">search_wiki</span>Hybrid retrieval over chunks + entities + edges</div>
-            <div class="mcp-item reveal stagger-2"><span class="tool-name">code_lookup</span>Resolve symbol to entity + neighbors + source</div>
-            <div class="mcp-item reveal stagger-3"><span class="tool-name">call_graph</span>Upstream callers + downstream callees N-hops</div>
-            <div class="mcp-item reveal stagger-4"><span class="tool-name">file_neighbors</span>Every entity in a file + cross-file edges</div>
-            <div class="mcp-item reveal stagger-1"><span class="tool-name">defined_in</span>"Where is X defined?" with inline snippet</div>
-            <div class="mcp-item reveal stagger-2"><span class="tool-name">mentions</span>Every chunk + entity referencing a symbol</div>
-            <div class="mcp-item reveal stagger-3"><span class="tool-name">find_similar_code</span>Embedding-similar functions and classes</div>
-            <div class="mcp-item reveal stagger-4"><span class="tool-name">find_similar_images</span>Multimodal similar diagrams from PDFs</div>
-            <div class="mcp-item reveal stagger-1"><span class="tool-name">recent_changes</span>Episodes added since a timestamp</div>
-            <div class="mcp-item reveal stagger-2"><span class="tool-name">add_episode</span>Upsert a fact with bi-temporal correctness</div>
-            <div class="mcp-item reveal stagger-3"><span class="tool-name">read_episode</span>Fetch any episode by UUID</div>
-            <div class="mcp-item reveal stagger-4"><span class="tool-name">graph_neighbors</span>N-hop subgraph from a center entity</div>
-            <div class="mcp-item reveal stagger-1"><span class="tool-name">list_corpora</span>What's indexed in the wiki</div>
+            <div class="mcp-item reveal stagger-1"><span class="tool-name">search_wiki</span>Hybrid retrieval over
+                chunks + entities + edges</div>
+            <div class="mcp-item reveal stagger-2"><span class="tool-name">code_lookup</span>Resolve symbol to entity +
+                neighbors + source</div>
+            <div class="mcp-item reveal stagger-3"><span class="tool-name">call_graph</span>Upstream callers +
+                downstream callees N-hops</div>
+            <div class="mcp-item reveal stagger-4"><span class="tool-name">file_neighbors</span>Every entity in a file +
+                cross-file edges</div>
+            <div class="mcp-item reveal stagger-1"><span class="tool-name">defined_in</span>"Where is X defined?" with
+                inline snippet</div>
+            <div class="mcp-item reveal stagger-2"><span class="tool-name">mentions</span>Every chunk + entity
+                referencing a symbol</div>
+            <div class="mcp-item reveal stagger-3"><span class="tool-name">find_similar_code</span>Embedding-similar
+                functions and classes</div>
+            <div class="mcp-item reveal stagger-4"><span class="tool-name">find_similar_images</span>Multimodal similar
+                diagrams from PDFs</div>
+            <div class="mcp-item reveal stagger-1"><span class="tool-name">recent_changes</span>Episodes added since a
+                timestamp</div>
+            <div class="mcp-item reveal stagger-2"><span class="tool-name">add_episode</span>Upsert a fact with
+                bi-temporal correctness</div>
+            <div class="mcp-item reveal stagger-3"><span class="tool-name">read_episode</span>Fetch any episode by UUID
+            </div>
+            <div class="mcp-item reveal stagger-4"><span class="tool-name">graph_neighbors</span>N-hop subgraph from a
+                center entity</div>
+            <div class="mcp-item reveal stagger-1"><span class="tool-name">list_corpora</span>What's indexed in the wiki
+            </div>
         </div>
     </section>
 
@@ -1792,11 +2290,17 @@
             <p>Self-host the engine in under 30 seconds, or grab the desktop app for the full experience.</p>
             <div class="cta-buttons">
                 <a href="https://github.com/vkfolio/wikiX.git" class="github-btn magnetic" target="_blank">
-                    <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                    </svg>
                     wikiX Engine
                 </a>
                 <a href="https://github.com/vkfolio/WikiX_App" class="github-btn magnetic" target="_blank">
-                    <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                    </svg>
                     wikiX Desktop
                 </a>
             </div>
@@ -1804,7 +2308,9 @@
     </section>
 
     <footer>
-        <p>wikiX Engine is <a href="https://github.com/vkfolio/wikiX/blob/main/LICENSE" target="_blank">MIT Licensed</a> · Desktop app distributed separately · Built by <a href="https://github.com/vkfolio" target="_blank">@vkfolio</a></p>
+        <p>wikiX Engine is <a href="https://github.com/vkfolio/wikiX/blob/main/LICENSE" target="_blank">MIT Licensed</a>
+            · Desktop app distributed separately · Built by <a href="https://github.com/vkfolio"
+                target="_blank">@vkfolio</a></p>
     </footer>
 
     <script>
@@ -1879,9 +2385,9 @@
             ctx.quadraticCurveTo((a.x + b.x) / 2 + ox, (a.y + b.y) / 2 + oy, b.x, b.y);
             if (bothLit) {
                 const gr = ctx.createLinearGradient(a.x, a.y, b.x, b.y);
-                gr.addColorStop(0,   `rgba(34,211,238,${alpha})`);
+                gr.addColorStop(0, `rgba(34,211,238,${alpha})`);
                 gr.addColorStop(0.5, `rgba(42,237,160,${alpha * 1.35})`);
-                gr.addColorStop(1,   `rgba(139,92,246,${alpha})`);
+                gr.addColorStop(1, `rgba(139,92,246,${alpha})`);
                 ctx.strokeStyle = gr; ctx.lineWidth = 1.1;
             } else {
                 ctx.strokeStyle = `rgba(34,211,238,${alpha})`; ctx.lineWidth = 0.55;
@@ -2038,7 +2544,7 @@
         // ── Install pill copy ──
         function copyInstall(pill) {
             const cmd = 'git clone https://github.com/vkfolio/wikiX.git && cd wikiX && cp .env.example .env && make up-host && make migrate';
-            navigator.clipboard.writeText(cmd).catch(() => {});
+            navigator.clipboard.writeText(cmd).catch(() => { });
             const cmdEl = pill.querySelector('.install-cmd');
             const orig = cmdEl.textContent;
             pill.classList.add('copied');
@@ -2066,25 +2572,25 @@
             let W, H, ht = 0;
 
             const HN = [
-                { id: 'es', label: 'EventSourcing',  rx: 0.13, ry: 0.34, col: '34,211,238',  r: 7 },
-                { id: 'tg', label: 'TemporalGraph',  rx: 0.36, ry: 0.56, col: '139,92,246', r: 9 },
-                { id: 'cb', label: 'codebase',        rx: 0.50, ry: 0.20, col: '34,211,238',  r: 7 },
-                { id: 'ast',label: 'AST extractor',  rx: 0.64, ry: 0.38, col: '42,237,160',  r: 6 },
-                { id: 'cg', label: 'call_graph',      rx: 0.78, ry: 0.60, col: '34,211,238',  r: 6 },
-                { id: 'ch', label: 'Chapter 4',       rx: 0.24, ry: 0.74, col: '42,237,160',  r: 6 },
-                { id: 'ep', label: 'Episode',         rx: 0.85, ry: 0.28, col: '139,92,246', r: 5 },
-                { id: 'sw', label: 'search_wiki',     rx: 0.10, ry: 0.65, col: '42,237,160',  r: 5 },
+                { id: 'es', label: 'EventSourcing', rx: 0.13, ry: 0.34, col: '34,211,238', r: 7 },
+                { id: 'tg', label: 'TemporalGraph', rx: 0.36, ry: 0.56, col: '139,92,246', r: 9 },
+                { id: 'cb', label: 'codebase', rx: 0.50, ry: 0.20, col: '34,211,238', r: 7 },
+                { id: 'ast', label: 'AST extractor', rx: 0.64, ry: 0.38, col: '42,237,160', r: 6 },
+                { id: 'cg', label: 'call_graph', rx: 0.78, ry: 0.60, col: '34,211,238', r: 6 },
+                { id: 'ch', label: 'Chapter 4', rx: 0.24, ry: 0.74, col: '42,237,160', r: 6 },
+                { id: 'ep', label: 'Episode', rx: 0.85, ry: 0.28, col: '139,92,246', r: 5 },
+                { id: 'sw', label: 'search_wiki', rx: 0.10, ry: 0.65, col: '42,237,160', r: 5 },
             ];
 
             const HE = [
-                { f:'es',  t:'tg',  lbl:'documents', col:'34,211,238' },
-                { f:'cb',  t:'ast', lbl:'extracts',  col:'42,237,160' },
-                { f:'ast', t:'tg',  lbl:'feeds',     col:'139,92,246' },
-                { f:'tg',  t:'cg',  lbl:'exposes',   col:'34,211,238' },
-                { f:'tg',  t:'ch',  lbl:'distills',  col:'42,237,160' },
-                { f:'tg',  t:'ep',  lbl:'valid_at',  col:'139,92,246' },
-                { f:'sw',  t:'es',  lbl:'retrieves', col:'34,211,238' },
-                { f:'cb',  t:'es',  lbl:'ingest',    col:'34,211,238' },
+                { f: 'es', t: 'tg', lbl: 'documents', col: '34,211,238' },
+                { f: 'cb', t: 'ast', lbl: 'extracts', col: '42,237,160' },
+                { f: 'ast', t: 'tg', lbl: 'feeds', col: '139,92,246' },
+                { f: 'tg', t: 'cg', lbl: 'exposes', col: '34,211,238' },
+                { f: 'tg', t: 'ch', lbl: 'distills', col: '42,237,160' },
+                { f: 'tg', t: 'ep', lbl: 'valid_at', col: '139,92,246' },
+                { f: 'sw', t: 'es', lbl: 'retrieves', col: '34,211,238' },
+                { f: 'cb', t: 'es', lbl: 'ingest', col: '34,211,238' },
             ];
 
             function pos(n) { return { x: n.rx * W, y: n.ry * H }; }
@@ -2092,20 +2598,29 @@
 
             let pulses = [];
             class HP {
-                constructor(fn, tn, col) { this.fn=fn; this.tn=tn; this.col=col; this.p=0; this.s=0.007+Math.random()*0.009; this.alive=true; }
+                constructor(fn, tn, col, cx, cy) { this.fn = fn; this.tn = tn; this.col = col; this.p = 0; this.s = 0.007 + Math.random() * 0.009; this.alive = true; this.cx = cx; this.cy = cy; }
                 update() { this.p += this.s; if (this.p >= 1) this.alive = false; }
                 draw() {
-                    const fp=pos(this.fn), tp=pos(this.tn);
-                    const x=fp.x+(tp.x-fp.x)*this.p, y=fp.y+(tp.y-fp.y)*this.p;
-                    const a=Math.sin(this.p*Math.PI)*0.9;
-                    hx.beginPath(); hx.arc(x,y,4,0,Math.PI*2); hx.fillStyle=`rgba(${this.col},${a})`; hx.fill();
-                    hx.beginPath(); hx.arc(x,y,12,0,Math.PI*2); hx.fillStyle=`rgba(${this.col},${a*0.12})`; hx.fill();
+                    const fp = pos(this.fn), tp = pos(this.tn);
+                    const t = this.p;
+                    const x = (1 - t) * (1 - t) * fp.x + 2 * (1 - t) * t * this.cx + t * t * tp.x;
+                    const y = (1 - t) * (1 - t) * fp.y + 2 * (1 - t) * t * this.cy + t * t * tp.y;
+                    const a = Math.sin(this.p * Math.PI) * 0.9;
+                    hx.beginPath(); hx.arc(x, y, 4, 0, Math.PI * 2); hx.fillStyle = `rgba(${this.col},${a})`; hx.fill();
+                    hx.beginPath(); hx.arc(x, y, 14, 0, Math.PI * 2); hx.fillStyle = `rgba(${this.col},${a * 0.12})`; hx.fill();
                 }
+            }
+
+            function ctrlPt(fp, tp) {
+                const dx = tp.x - fp.x, dy = tp.y - fp.y;
+                const len = Math.sqrt(dx * dx + dy * dy) || 1;
+                const curveAmt = Math.min(len * 0.38, 90);
+                return { x: (fp.x + tp.x) / 2 + (-dy / len) * curveAmt, y: (fp.y + tp.y) / 2 + (dx / len) * curveAmt };
             }
 
             function resize() {
                 W = hc.offsetWidth || 800;
-                H = 220;
+                H = 460;
                 hc.width = W * window.devicePixelRatio;
                 hc.height = H * window.devicePixelRatio;
                 hc.style.height = H + 'px';
@@ -2118,18 +2633,21 @@
 
                 // edges
                 HE.forEach((e, i) => {
-                    const fn=byId(e.f), tn=byId(e.t);
-                    if (!fn||!tn) return;
-                    const fp=pos(fn), tp=pos(tn);
-                    hx.beginPath(); hx.moveTo(fp.x,fp.y); hx.lineTo(tp.x,tp.y);
-                    hx.strokeStyle=`rgba(${e.col},0.14)`; hx.lineWidth=1; hx.stroke();
-                    // edge label
-                    const mx=(fp.x+tp.x)/2, my=(fp.y+tp.y)/2;
-                    hx.font='600 8px Inter,sans-serif';
-                    hx.fillStyle='rgba(71,85,105,0.75)';
-                    hx.textAlign='center'; hx.fillText(e.lbl, mx, my-5);
+                    const fn = byId(e.f), tn = byId(e.t);
+                    if (!fn || !tn) return;
+                    const fp = pos(fn), tp = pos(tn);
+                    const cp = ctrlPt(fp, tp);
+                    e._cx = cp.x; e._cy = cp.y;
+                    hx.beginPath(); hx.moveTo(fp.x, fp.y); hx.quadraticCurveTo(cp.x, cp.y, tp.x, tp.y);
+                    hx.strokeStyle = `rgba(${e.col},0.18)`; hx.lineWidth = 1.5; hx.stroke();
+                    // edge label at bezier t=0.5
+                    const lx = 0.25 * fp.x + 0.5 * cp.x + 0.25 * tp.x;
+                    const ly = 0.25 * fp.y + 0.5 * cp.y + 0.25 * tp.y;
+                    hx.font = '600 8px Inter,sans-serif';
+                    hx.fillStyle = 'rgba(71,85,105,0.75)';
+                    hx.textAlign = 'center'; hx.fillText(e.lbl, lx, ly - 5);
                     // spawn pulse
-                    if (ht % 140 === i * 18 % 140) pulses.push(new HP(fn,tn,e.col));
+                    if (ht % 140 === i * 18 % 140) pulses.push(new HP(fn, tn, e.col, cp.x, cp.y));
                 });
 
                 // pulses
@@ -2138,28 +2656,29 @@
 
                 // nodes
                 HN.forEach((n, i) => {
-                    const p=pos(n);
-                    const pulse=Math.sin(ht*0.02+i*0.9)*0.25+0.75;
+                    const p = pos(n);
+                    const pulse = Math.sin(ht * 0.02 + i * 0.9) * 0.25 + 0.75;
                     // glow
-                    const g=hx.createRadialGradient(p.x,p.y,0,p.x,p.y,n.r*4);
-                    g.addColorStop(0,`rgba(${n.col},0.28)`); g.addColorStop(1,`rgba(${n.col},0)`);
-                    hx.beginPath(); hx.arc(p.x,p.y,n.r*4,0,Math.PI*2); hx.fillStyle=g; hx.fill();
+                    const g = hx.createRadialGradient(p.x, p.y, 0, p.x, p.y, n.r * 4);
+                    g.addColorStop(0, `rgba(${n.col},0.28)`); g.addColorStop(1, `rgba(${n.col},0)`);
+                    hx.beginPath(); hx.arc(p.x, p.y, n.r * 4, 0, Math.PI * 2); hx.fillStyle = g; hx.fill();
                     // dot
-                    hx.beginPath(); hx.arc(p.x,p.y,n.r,0,Math.PI*2);
-                    hx.fillStyle=`rgba(${n.col},${pulse})`; hx.fill();
+                    hx.beginPath(); hx.arc(p.x, p.y, n.r, 0, Math.PI * 2);
+                    hx.fillStyle = `rgba(${n.col},${pulse})`; hx.fill();
                     // label
-                    hx.font='600 9.5px Inter,sans-serif';
-                    hx.fillStyle='rgba(148,163,184,0.72)';
-                    hx.textAlign='center'; hx.fillText(n.label, p.x, p.y-n.r-6);
+                    hx.font = '600 9.5px Inter,sans-serif';
+                    hx.fillStyle = 'rgba(148,163,184,0.72)';
+                    hx.textAlign = 'center'; hx.fillText(n.label, p.x, p.y - n.r - 6);
                 });
 
                 requestAnimationFrame(frame);
             }
 
             resize();
-            window.addEventListener('resize', () => { hx.setTransform(1,0,0,1,0,0); resize(); });
+            window.addEventListener('resize', () => { hx.setTransform(1, 0, 0, 1, 0, 0); resize(); });
             frame();
         })();
     </script>
 </body>
+
 </html>
