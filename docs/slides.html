@@ -323,35 +323,48 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--bg);
 /* ══════════════════════════════════
    SLIDE 6 — DESKTOP APP
 ══════════════════════════════════ */
-#slide-6 { background: var(--bg); }
+#slide-6 { background: #0f172a; }
 
 #slide-6 .inner {
   display: flex; flex-direction: column;
-  height: 100%; padding: 36px 64px 48px; gap: 18px;
+  height: 100%; padding: 32px 52px 36px; gap: 16px;
 }
 #slide-6 .s6-top {
-  display: flex; align-items: flex-end; justify-content: space-between;
+  display: flex; align-items: center; justify-content: space-between; flex-shrink: 0;
 }
 #slide-6 h2 {
-  font-size: 1.9rem; font-weight: 800; letter-spacing: -.035em; color: var(--text); line-height: 1.2;
+  font-size: 1.6rem; font-weight: 800; letter-spacing: -.035em; color: #f8fafc; line-height: 1.2;
 }
-.s6-feats { display: flex; gap: 20px; flex-wrap: wrap; }
+.s6-feats { display: flex; gap: 16px; flex-wrap: wrap; }
 .s6-feat {
-  display: flex; align-items: center; gap: 7px;
-  font-size: 0.8rem; color: var(--text2); font-weight: 500;
+  display: flex; align-items: center; gap: 6px;
+  font-size: 0.75rem; color: rgba(148,163,184,.85); font-weight: 500;
 }
-.s6-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--teal); flex-shrink: 0; }
+.s6-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--teal); flex-shrink: 0; }
 
+.s6-screens {
+  flex: 1; display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 14px; min-height: 0;
+}
+.s6-panel {
+  display: flex; flex-direction: column; gap: 8px; min-height: 0;
+}
+.s6-label {
+  font-family: var(--mono); font-size: 0.62rem; font-weight: 600;
+  letter-spacing: .1em; text-transform: uppercase; color: rgba(148,163,184,.6);
+  text-align: center;
+}
 .app-frame {
-  flex: 1; border-radius: 12px; overflow: hidden;
-  border: 1px solid var(--border); box-shadow: 0 4px 32px rgba(15,23,42,.1);
+  flex: 1; border-radius: 10px; overflow: hidden;
+  border: 1px solid rgba(255,255,255,.08);
+  box-shadow: 0 8px 32px rgba(0,0,0,.4);
   display: flex; flex-direction: column; min-height: 0;
 }
 .app-titlebar {
   display: flex; align-items: center; gap: 6px;
-  padding: 10px 14px; background: #1e293b; flex-shrink: 0;
+  padding: 8px 12px; background: #1e293b; flex-shrink: 0;
 }
-.app-title { font-family: var(--mono); font-size: 0.66rem; color: rgba(148,163,184,.65); margin-left: 6px; }
+.app-title { font-family: var(--mono); font-size: 0.6rem; color: rgba(148,163,184,.55); margin-left: 4px; }
 .app-frame img {
   display: block; width: 100%; flex: 1;
   object-fit: cover; object-position: top left; min-height: 0;
@@ -629,27 +642,50 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--bg);
 <div class="slide" id="slide-6">
   <div class="inner">
     <div class="s6-top">
-      <div>
-        <span class="tag tag-teal" style="margin-bottom:10px;display:inline-flex;">◆ Desktop App</span>
-        <h2>The graph,<br>in native form.</h2>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <span class="tag tag-teal">◆ Desktop App · Coming Soon</span>
+        <h2>The graph, in native form.</h2>
       </div>
       <div class="s6-feats">
-        <div class="s6-feat"><span class="s6-dot"></span>Cytoscape graph viewer</div>
-        <div class="s6-feat"><span class="s6-dot"></span>Shiki + Mermaid + KaTeX</div>
-        <div class="s6-feat"><span class="s6-dot"></span>Streaming SSE chat</div>
-        <div class="s6-feat"><span class="s6-dot"></span>MCP Gateway</div>
-        <div class="s6-feat"><span class="s6-dot"></span>Insights dashboard</div>
+        <div class="s6-feat"><span class="s6-dot"></span>Knowledge graph viewer</div>
+        <div class="s6-feat"><span class="s6-dot"></span>Streaming AI chat</div>
+        <div class="s6-feat"><span class="s6-dot"></span>Book reader + MCP Gateway</div>
       </div>
     </div>
-    <div class="app-frame">
-      <div class="app-titlebar">
-        <div class="tl tl-r"></div><div class="tl tl-y"></div><div class="tl tl-g"></div>
-        <span class="app-title">wikiX Desktop — temporal knowledge engine</span>
+    <div class="s6-screens">
+      <div class="s6-panel">
+        <div class="app-frame">
+          <div class="app-titlebar">
+            <div class="tl tl-r"></div><div class="tl tl-y"></div><div class="tl tl-g"></div>
+            <span class="app-title">Overview</span>
+          </div>
+          <img src="home.png" alt="wikiX Desktop — Overview"/>
+        </div>
+        <div class="s6-label">Overview</div>
       </div>
-      <img src="app-screenshot.png" alt="wikiX Desktop"/>
+      <div class="s6-panel">
+        <div class="app-frame">
+          <div class="app-titlebar">
+            <div class="tl tl-r"></div><div class="tl tl-y"></div><div class="tl tl-g"></div>
+            <span class="app-title">Knowledge Graph</span>
+          </div>
+          <img src="graph.png" alt="wikiX Desktop — Graph Viewer"/>
+        </div>
+        <div class="s6-label">Graph Viewer</div>
+      </div>
+      <div class="s6-panel">
+        <div class="app-frame">
+          <div class="app-titlebar">
+            <div class="tl tl-r"></div><div class="tl tl-y"></div><div class="tl tl-g"></div>
+            <span class="app-title">AI Chat</span>
+          </div>
+          <img src="chat.png" alt="wikiX Desktop — Chat"/>
+        </div>
+        <div class="s6-label">AI Chat</div>
+      </div>
     </div>
   </div>
-  <div class="slide-counter">6 / 8</div>
+  <div class="slide-counter" style="color:rgba(148,163,184,.5);">6 / 8</div>
 </div>
 
 <!-- ══ SLIDE 7 — SELF HOST ══ -->
