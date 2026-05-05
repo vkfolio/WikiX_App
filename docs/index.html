@@ -2024,7 +2024,7 @@
         <div class="nav-links">
             <a href="#products">Products</a>
             <a href="#features">Features</a>
-            <a href="#desktop">Desktop</a>
+            <a href="#desktop" style="opacity:0.55;">Desktop <span style="font-size:0.7em;vertical-align:middle;background:#fef3c7;color:#92400e;border-radius:4px;padding:1px 5px;font-weight:700;">soon</span></a>
             <a href="#mcp">MCP Tools</a>
             <a href="https://github.com/vkfolio/wikiX.git" class="github-nav-btn" target="_blank">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -2054,14 +2054,14 @@
                 </svg>
                 Engine on GitHub
             </a>
-            <a href="https://github.com/vkfolio/WikiX_App" class="btn btn-secondary magnetic" target="_blank">
+            <span class="btn btn-secondary" style="opacity:0.55;cursor:default;pointer-events:none;">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                         d="M21 2H3C1.9 2 1 2.9 1 4V16C1 17.1 1.9 18 3 18H10V20H8V22H16V20H14V18H21C22.1 18 23 17.1 23 16V4C23 2.9 22.1 2 21 2ZM21 16H3V4H21V16Z"
                         fill="currentColor" />
                 </svg>
-                Desktop App
-            </a>
+                Desktop — Coming Soon
+            </span>
         </div>
 
         <div class="install-pill" id="installPill" onclick="copyInstall(this)">
@@ -2125,8 +2125,7 @@
         <div class="section-header reveal">
             <span class="section-tag">The Stack</span>
             <h2 class="section-title">Two layers. One graph.</h2>
-            <p class="section-desc">Use the engine headlessly from your agents, or run the desktop app for the polished
-                daily-driver experience.</p>
+            <p class="section-desc">Use the engine headlessly from your agents. Desktop app coming soon.</p>
         </div>
         <div class="product-grid">
             <div class="product-card reveal stagger-1">
@@ -2148,7 +2147,8 @@
                 <a href="https://github.com/vkfolio/wikiX.git" class="product-link"
                     target="_blank">github.com/vkfolio/wikiX →</a>
             </div>
-            <div class="product-card reveal stagger-2">
+            <div class="product-card reveal stagger-2" style="opacity:0.7;position:relative;">
+                <div style="position:absolute;top:1rem;right:1rem;background:#fef3c7;border:1px solid #fcd34d;border-radius:999px;padding:0.2rem 0.7rem;font-size:0.72rem;font-weight:700;color:#92400e;letter-spacing:0.05em;text-transform:uppercase;">Coming Soon</div>
                 <div class="product-icon">
                     <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -2166,8 +2166,7 @@
                     <li>Smart corpus folder watcher</li>
                     <li>Insights dashboard + spend telemetry</li>
                 </ul>
-                <a href="https://github.com/vkfolio/WikiX_App" class="product-link"
-                    target="_blank">github.com/vkfolio/WikiX_App →</a>
+                <span class="product-link" style="color:var(--text-secondary);cursor:default;">In development →</span>
             </div>
         </div>
     </section>
@@ -2310,38 +2309,26 @@
         </div>
     </section>
 
-    <section class="showcase" id="desktop">
-        <div class="showcase-content" style="grid-template-columns:1fr;max-width:1000px;">
-            <div class="showcase-visual reveal-left" style="aspect-ratio:16/9;width:100%;">
-                <div class="showcase-screen" style="width:100%;height:100%;">
-                    <div class="screen-header">
-                        <div class="screen-dot" style="background:#ff5f57"></div>
-                        <div class="screen-dot" style="background:#febc2e"></div>
-                        <div class="screen-dot" style="background:#28c840"></div>
-                    </div>
-                    <div class="screen-body" style="display:block;padding:0;overflow:hidden;flex:1;">
-                        <img src="app-screenshot.png" alt="wikiX Desktop — Overview" class="showcase-screenshot" style="width:100%;height:100%;object-fit:cover;object-position:top left;display:block;" />
-                    </div>
-                </div>
+    <section class="showcase" id="desktop" style="padding:5rem 2rem;">
+        <div style="max-width:720px;margin:0 auto;text-align:center;">
+            <span class="section-tag">Desktop App</span>
+            <h2 style="margin:1rem 0 0.75rem;">The graph, in native form.</h2>
+            <p style="color:var(--text-secondary);margin-bottom:2.5rem;">A polished native interface wrapping the entire wikiX engine — graph viewer, wiki reader, and streaming chat. Signed releases for macOS, Windows, and Linux.</p>
+            <div style="display:inline-flex;align-items:center;gap:0.6rem;background:#f1f5f9;border:1px solid #e2e8f0;border-radius:999px;padding:0.6rem 1.5rem;font-size:0.85rem;font-weight:600;color:var(--text-secondary);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:2rem;">
+                <span style="width:8px;height:8px;border-radius:50%;background:#f59e0b;display:inline-block;box-shadow:0 0 0 3px rgba(245,158,11,0.2);"></span>
+                Coming Soon
             </div>
-            <div class="showcase-text reveal-right" style="text-align:center;align-items:center;display:flex;flex-direction:column;">
-                <span class="section-tag">Desktop App</span>
-                <h2>The graph, <br>in native form.</h2>
-                <p>wikiX Desktop wraps the entire engine in a polished native interface. Visualize your knowledge graph
-                    with Cytoscape.js, read auto-generated wiki books with syntax highlighting, and chat with your
-                    corpus through a streaming SSE interface.</p>
-                <ul class="showcase-list" style="display:flex;flex-wrap:wrap;justify-content:center;gap:0.5rem 2rem;">
-                    <li><span class="check">✓</span> Graph viewer with fcose + dagre layouts</li>
-                    <li><span class="check">✓</span> Shiki-highlighted code blocks + Mermaid diagrams</li>
-                    <li><span class="check">✓</span> MCP Gateway with per-IDE token grants</li>
-                    <li><span class="check">✓</span> Insights tab: god-nodes, surprising connections, Atlas</li>
-                    <li><span class="check">✓</span> Signed .dmg / .msi / .AppImage releases</li>
-                </ul>
-                <a href="https://github.com/vkfolio/WikiX_App" class="btn btn-primary magnetic" target="_blank"
-                    style="margin-top:0.5rem">
-                    Download Desktop
-                </a>
+            <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:0.75rem;margin-bottom:2.5rem;">
+                <span style="background:#f1f5f9;border:1px solid #e2e8f0;border-radius:8px;padding:0.4rem 1rem;font-size:0.82rem;color:var(--text-secondary);">Graph viewer · fcose + dagre</span>
+                <span style="background:#f1f5f9;border:1px solid #e2e8f0;border-radius:8px;padding:0.4rem 1rem;font-size:0.82rem;color:var(--text-secondary);">Shiki + Mermaid wiki reader</span>
+                <span style="background:#f1f5f9;border:1px solid #e2e8f0;border-radius:8px;padding:0.4rem 1rem;font-size:0.82rem;color:var(--text-secondary);">MCP Gateway</span>
+                <span style="background:#f1f5f9;border:1px solid #e2e8f0;border-radius:8px;padding:0.4rem 1rem;font-size:0.82rem;color:var(--text-secondary);">Streaming SSE chat</span>
+                <span style="background:#f1f5f9;border:1px solid #e2e8f0;border-radius:8px;padding:0.4rem 1rem;font-size:0.82rem;color:var(--text-secondary);">.dmg / .msi / .AppImage</span>
             </div>
+            <a href="https://github.com/vkfolio/WikiX_App" class="btn btn-secondary magnetic" target="_blank">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.373 0 12c0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.757-1.333-1.757-1.089-.744.084-.729.084-.729 1.205.084 1.84 1.237 1.84 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.762-1.605-2.665-.3-5.467-1.332-5.467-5.93 0-1.31.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.29-1.552 3.297-1.23 3.297-1.23.653 1.652.242 2.873.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.628-5.479 5.921.43.372.823 1.102.823 2.222 0 1.606-.015 2.898-.015 3.293 0 .322.216.694.825.576C20.565 21.796 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                Watch on GitHub
+            </a>
         </div>
     </section>
 
@@ -2385,7 +2372,7 @@
     <section class="cta">
         <div class="cta-box reveal-scale">
             <h2>Start building your temporal wiki</h2>
-            <p>Self-host the engine in under 30 seconds, or grab the desktop app for the full experience.</p>
+            <p>Self-host the engine in under 30 seconds. Desktop app coming soon.</p>
             <div class="cta-buttons">
                 <a href="https://github.com/vkfolio/wikiX.git" class="github-btn magnetic" target="_blank">
                     <svg viewBox="0 0 24 24">
@@ -2394,13 +2381,12 @@
                     </svg>
                     wikiX Engine
                 </a>
-                <a href="https://github.com/vkfolio/WikiX_App" class="github-btn magnetic" target="_blank">
-                    <svg viewBox="0 0 24 24">
-                        <path
-                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                <span class="github-btn" style="opacity:0.45;cursor:default;pointer-events:none;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21 2H3C1.9 2 1 2.9 1 4V16C1 17.1 1.9 18 3 18H10V20H8V22H16V20H14V18H21C22.1 18 23 17.1 23 16V4C23 2.9 22.1 2 21 2ZM21 16H3V4H21V16Z" fill="currentColor"/>
                     </svg>
-                    wikiX Desktop
-                </a>
+                    Desktop — Coming Soon
+                </span>
             </div>
         </div>
     </section>
