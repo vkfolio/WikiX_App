@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -50,6 +51,19 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--bg);
   position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
   display: flex; gap: 7px; z-index: 500; pointer-events: none;
 }
+
+#dl-btn {
+  position: fixed; top: 16px; right: 18px; z-index: 1000;
+  display: flex; align-items: center; gap: 7px;
+  padding: 7px 14px; background: rgba(15,23,42,.07);
+  border: 1px solid rgba(15,23,42,.12); border-radius: 8px;
+  font-family: var(--mono); font-size: 0.68rem; font-weight: 600;
+  color: var(--text2); cursor: pointer; backdrop-filter: blur(6px);
+  transition: background .15s, color .15s;
+}
+#dl-btn:hover { background: var(--text); color: #fff; border-color: var(--text); }
+#dl-btn svg { flex-shrink: 0; }
+#dl-btn.busy { opacity: .5; pointer-events: none; }
 .dot {
   width: 7px; height: 7px; border-radius: 50%;
   background: var(--border2); cursor: pointer; pointer-events: all;
@@ -176,7 +190,7 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--bg);
   background: #fff; border: 1px solid var(--border); border-radius: 14px;
   padding: 22px; text-align: left;
 }
-.pain-card .icon { font-size: 1.5rem; margin-bottom: 10px; line-height: 1; }
+.pain-card .icon { font-size: 1.6rem; margin-bottom: 10px; line-height: 1; color: var(--cyan); }
 .pain-card h4 { font-size: 0.88rem; font-weight: 700; color: var(--text); margin-bottom: 6px; }
 .pain-card p { font-size: 0.78rem; color: var(--text2); line-height: 1.55; }
 
@@ -321,66 +335,16 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--bg);
 .tk { color: #7dd3fc; } .ts { color: #86efac; } .tp { color: #475569; }
 
 /* ══════════════════════════════════
-   SLIDE 6 — DESKTOP APP
+   SLIDE 6 — SELF HOST
 ══════════════════════════════════ */
-#slide-6 { background: #0f172a; }
+#slide-6 { background: #fff; }
 
 #slide-6 .inner {
-  display: flex; flex-direction: column;
-  height: 100%; padding: 32px 52px 36px; gap: 16px;
-}
-#slide-6 .s6-top {
-  display: flex; align-items: center; justify-content: space-between; flex-shrink: 0;
-}
-#slide-6 h2 {
-  font-size: 1.6rem; font-weight: 800; letter-spacing: -.035em; color: #f8fafc; line-height: 1.2;
-}
-.s6-feats { display: flex; gap: 16px; flex-wrap: wrap; }
-.s6-feat {
-  display: flex; align-items: center; gap: 6px;
-  font-size: 0.75rem; color: rgba(148,163,184,.85); font-weight: 500;
-}
-.s6-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--teal); flex-shrink: 0; }
-
-.s6-screens {
-  flex: 1; display: grid; grid-template-columns: repeat(3, 1fr);
-  gap: 14px; min-height: 0;
-}
-.s6-panel {
-  display: flex; flex-direction: column; gap: 8px; min-height: 0;
-}
-.s6-label {
-  font-family: var(--mono); font-size: 0.62rem; font-weight: 600;
-  letter-spacing: .1em; text-transform: uppercase; color: rgba(148,163,184,.6);
-  text-align: center;
-}
-.app-frame {
-  flex: 1; border-radius: 10px; overflow: hidden;
-  border: 1px solid rgba(255,255,255,.08);
-  box-shadow: 0 8px 32px rgba(0,0,0,.4);
-  display: flex; flex-direction: column; min-height: 0;
-}
-.app-titlebar {
-  display: flex; align-items: center; gap: 6px;
-  padding: 8px 12px; background: #1e293b; flex-shrink: 0;
-}
-.app-title { font-family: var(--mono); font-size: 0.6rem; color: rgba(148,163,184,.55); margin-left: 4px; }
-.app-frame img {
-  display: block; width: 100%; flex: 1;
-  object-fit: cover; object-position: top left; min-height: 0;
-}
-
-/* ══════════════════════════════════
-   SLIDE 7 — SELF HOST
-══════════════════════════════════ */
-#slide-7 { background: #fff; }
-
-#slide-7 .inner {
   display: flex; flex-direction: column;
   height: 100%; padding: 52px 80px; justify-content: center; gap: 28px;
 }
 
-#slide-7 h2 {
+#slide-6 h2 {
   font-size: clamp(1.8rem, 3vw, 2.9rem);
   font-weight: 800; letter-spacing: -.035em; color: var(--text); line-height: 1.15;
 }
@@ -408,11 +372,11 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--bg);
 .cmd-line .prompt { color: #475569; margin-right: 2px; }
 
 /* ══════════════════════════════════
-   SLIDE 8 — CTA
+   SLIDE 7 — CTA
 ══════════════════════════════════ */
-#slide-8 { background: var(--bg); position: relative; }
+#slide-7 { background: var(--bg); position: relative; }
 
-#slide-8 .inner {
+#slide-7 .inner {
   position: relative; z-index: 1;
   display: flex; flex-direction: column;
   align-items: center; justify-content: center;
@@ -433,6 +397,12 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--bg);
 <body>
 
 <div id="progress-bar"></div>
+<button id="dl-btn" title="Download all slides as PNG">
+  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+  </svg>
+  Download slides
+</button>
 <div id="dot-nav">
   <div class="dot active" data-slide="0"></div>
   <div class="dot" data-slide="1"></div>
@@ -441,45 +411,20 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--bg);
   <div class="dot" data-slide="4"></div>
   <div class="dot" data-slide="5"></div>
   <div class="dot" data-slide="6"></div>
-  <div class="dot" data-slide="7"></div>
 </div>
 
 <div id="deck">
 
 <!-- ══ SLIDE 1 — HERO ══ -->
 <div class="slide dot-bg active" id="slide-1">
-  <div class="logo-wrap">
-    <svg viewBox="0 0 260 64" height="34" xmlns="http://www.w3.org/2000/svg">
-      <path d="M260,8l0,48c0,4.415-3.585,8-8,8l-244,0c-4.415,0-8-3.585-8-8l0-48c0-4.415,3.585-8,8-8l244,0c4.415,0,8,3.585,8,8Z" fill="#040806"/>
-      <path d="M12.639,20.75l0,1.436c0,1.66.359,2.692,1.211,4.351l10.856,20.59c.718,1.211,2.512,1.48,3.185.224l4.262-6.908c1.121-1.57,1.211-4.441-.135-6.415l-10.721-15.835c-1.346-1.884-2.467-2.422-3.992-2.422-2.736,0-4.665,2.108-4.665,4.979Zm22.743-2.781c-.799.912-2.377,3.544-2.377,3.544-.852,1.391-1.151,3.058-1.391,4.307-.2,1.043-.234,2.14-.045,3.185.224,1.241.494,2.781,1.391,4.262l8.882,13.816c.807,1.166,2.512,1.48,3.23.269l4.755-7.626c.538-.852.74-2.49.718-3.544-.021-.97-.224-1.794-.852-2.781l-10.407-15.566c-1.121-1.436-2.332-1.658-3.903.135Zm20.366-1.301l-5.41,6.148c-.583.852-.673,1.794-.09,2.781l5.321,6.099c.404.494.852.718,1.615.718.673,0,1.121-.224,1.525-.718l5.233-6.099c.538-.763.583-2.019-.09-2.961l-4.425-5.968c-.852-1.077-2.647-1.256-3.678,0Zm.179,18.347l-4.307,7.132c-.269.538-2.341,3.911-2.341,4.987,0,1.48,3.194.92,5.122.934,2.414.017,9.331,0,9.331,0,1.436-.045,1.974-1.839,1.032-3.05l-6.863-10.003c-.449-.628-.718-.628-.942-.628-.314,0-.628.09-1.032.628Z" fill="url(#g1)"/>
-      <path d="M85.172,18.5l0,27c0,.276-.224.5-.5.5-.276,0-.5-.224-.5-.5l0-27c0-.276.224-.5.5-.5.276,0,.5.224.5.5Z" fill="#fff" fill-opacity=".22"/>
-      <path d="M103.697,23.496c-.702-2.765-1.533-5.461-1.691-6.23-.017-.083-.153-.748.596-.883.239-.043,5.841-.019,5.989-.015,1.427.042,1.403,1.054,1.552,1.701.357,1.539.464,1.515.725,2.71.156.714,2.513,9.716,2.584,9.968.206.722.121,1.551.664,1.515.401-.027.263-.207.581-1.009.189-.477,6.38-12.266,6.666-12.756.761-1.299,2.162-.914,2.613-.374.178.213.297.357,1.642,3.032.938,1.864,4.242,8.159,4.668,8.912.452.798.966,2.117,1.007,2.143.025.015.521.004.539-.012.165-.148-.014-.534.574-2.566.392-1.355.333-1.362.696-2.725,1.324-4.967,1.49-5.916,1.998-7.706.604-2.131.478-2.936,2.436-2.879,4.335.126,5.282-.078,5.57.175.372.326.225.897-.31,2.754-.005.017-1.677,6.153-1.781,6.493-.84,2.761-.8,2.763-4.268,15.445-1.104,4.036-.888,4.696-2.776,4.742-2.54.062-2.883-.073-3.204-.479-.768-.972-5.666-10.595-6.935-12.845-.424-.751-.596-1.316-.858-1.611-.522-.587-.908.654-1.03.872-.178.315-.507.9-2.139,3.983-.57,1.077-.529,1.091-1.093,2.171-.102.196-1.153,2.21-1.29,2.452-1.071,1.893-2.302,4.871-2.945,5.254-.655.39-3.714.186-3.921.126-.141-.041-.797.053-1.458-3.148-.323-1.566-.501-1.513-.865-3.068-.407-1.74-.519-1.704-.966-3.43-.414-1.594-.463-1.573-.896-3.155-1.754-6.4-1.826-6.38-1.961-6.941-.318-1.326-.285-1.328-.711-2.618Z" fill="#fff"/>
-      <path d="M149.833,45.949c-1.822.005-2.795.067-3.089-.218-.264-.256-.206-.317-.207-7.239,0-1.049,0-13.015.01-13.115.113-1.018.572-.828,4.87-.832,1.966-.002,2.689-.162,2.799.84.055.493-.047.495.033,12.722.004.555.04,6.11-.031,6.94-.09,1.055-.556.891-4.386.902Z" fill="#fff"/>
-      <path d="M167.17,36.716c-.111.055-.24.073-.351.129-.275.136-.207.196-.188.503.081,1.343.105,1.333.102,2.685-.013,5.239.18,5.716-.62,5.881-.605.125-5.492.044-5.97.037-1.059-.018-1.127-.257-1.122-1.289.015-3.148-.012-22.874.003-24.283.043-4.009-.18-4.413.739-4.521.263-.031,5.77-.016,5.931-.013.727.014.879.001,1.032.698.029.133.008,12.395.006,13.473-.002,1.321-.236,1.583.218,1.769.295.12.29.011.399-.123,1.497-1.836,1.506-1.82,3.143-3.545,2.849-3.001,2.656-3.522,4.328-3.542.508-.006,4.338-.054,6.354-.025.793.011,1.034.345.466.89-.519.498-6.09,6.496-6.446,6.866-1.103,1.146-1.6,1.433-.849,2.388.193.245,2.042,2.598,2.424,3.055.648.775,2.391,3.018,3.309,4.136,2.415,2.941,2.44,2.919,2.631,3.188.036.051.345.486.071.774-.098.103-1.116.094-1.214.093-1.559-.013-6.646.075-7.158-.071-.15-.043-.488-.14-1.385-1.345-3.128-4.201-5.245-6.64-5.851-7.808Z" fill="#fff"/>
-      <path d="M190.613,45.949c-2.617.004-3.424.127-3.616-.503-.111-.363-.018-12.229-.036-19.673-.004-1.423.576-1.238,2.462-1.232,1.239.004,1.991.015,3.171.013,1.47-.002,2.034-.209,2.041,1.218.008,1.573.102,19.116-.059,19.658-.181.609-.814.508-3.963.518Z" fill="#fff"/>
-      <path d="M154.329,17.63c.033.146.754,1.841-.743,3.656-2.557,3.102-8.059.93-7.242-3.203.641-3.239,5.563-4.459,7.683-1.073.029.047.022.046.302.621Z" fill="#fff"/>
-      <path d="M226.455,18.502c-.121.159-2.757,3.964-2.902,4.151-.405.523-4.493,6.357-4.673,6.614-.929,1.315-1.496,1.442-.588,2.773.595.872,8.722,11.967,9.235,12.651.494.66.505.654.518.724.078.429.026.517-.422.563-.212.022-5.517-.006-5.997-.009-1.418-.007-1.31-.38-2.493-2.008-2.058-2.835-2.059-2.828-4.046-5.711-.467-.678-.528-.631-.967-1.327-.146-.232-.161-.238-.436-.246-.409-.013-.395.071-.625.399-.322.458-3.956,5.626-4.025,5.722-1.953,2.735-1.834,3.155-3.278,3.166-.072.001-5.436.003-5.567.01-.394.023-.46.102-.672-.219-.058-.088-.079-.211-.046-.311.057-.167,1.707-2.211,5.366-7.414.603-.856,4.675-6.363,4.725-6.548.163-.589-.339-1.004-.634-1.468-.17-.268-8.253-11.512-9.141-12.706-.269-.361-.4-.328-.344-.776.047-.379.409-.249,3.541-.248,3.474.001,3.628-.115,4.285.678.323.39,3.786,5.43,4.888,6.841.399.51,1.189,1.832,1.24,1.857.084.04.187-.015.28-.02.272-.013.286-.025.412-.252.081-.145,5.876-8.683,6.316-8.907.687-.35,2.617-.145,6.369-.207.057-.001.624-.01.711.034.256.13.133.561.119.609-.043.149-.145.087-1.147,1.584Z" fill="#24dbd7"/>
-      <path d="M193.104,22.748c-.976.463-.96.553-2.044.596-4.283.172-6.531-5.127-2.643-7.835,1.919-1.337,6.185-.858,6.76,3.134.129.891-.281,2.886-1.594,3.772-.242.164-.233.162-.478.332Z" fill="#fff"/>
-      <defs>
-        <linearGradient id="g1" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(-1.341276,32.378592,-32.378592,-1.341276,38.737952,15.766862)">
-          <stop offset="0" stop-color="#22d3ee"/><stop offset="1" stop-color="#2aeda0"/>
-        </linearGradient>
-      </defs>
-    </svg>
-  </div>
-
   <div class="inner">
-    <p class="eyebrow">◆ Now on Product Hunt</p>
+    <p class="eyebrow"><i class="ph-fill ph-diamond"></i> Now on Product Hunt</p>
     <h1>Your AI agents forget<br>everything between runs.<br><span>wikiX remembers.</span></h1>
     <p class="sub">A temporal knowledge engine for code, documents, and conversations — a queryable graph that never forgets what changed.</p>
     <div class="btn-row">
       <a href="https://github.com/vkfolio/wikiX" target="_blank" class="btn-dark" onclick="event.stopPropagation()">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M7 2V13H10V22L17 10H13L16 2H7Z" fill="currentColor"/></svg>
         Engine on GitHub
-      </a>
-      <a href="https://github.com/vkfolio/WikiX_App" target="_blank" class="btn-outline" onclick="event.stopPropagation()">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M21 2H3C1.9 2 1 2.9 1 4V16C1 17.1 1.9 18 3 18H10V20H8V22H16V20H14V18H21C22.1 18 23 17.1 23 16V4C23 2.9 22.1 2 21 2ZM21 16H3V4H21V16Z" fill="currentColor"/></svg>
-        Desktop App
       </a>
     </div>
     <div class="stats">
@@ -489,42 +434,42 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--bg);
       <div class="stat-item"><strong>MIT</strong><span>Licensed</span></div>
     </div>
   </div>
-  <div class="slide-counter">1 / 8</div>
+  <div class="slide-counter">1 / 7</div>
 </div>
 
 <!-- ══ SLIDE 2 — PROBLEM ══ -->
 <div class="slide" id="slide-2" style="background:var(--bg);">
   <div class="inner">
-    <span class="tag">◆ The Problem</span>
+    <span class="tag"><i class="ph-fill ph-warning-circle"></i> The Problem</span>
     <div class="quote-wrap">
       <blockquote>"More of my recent LLM token budget goes into manipulating knowledge than code."</blockquote>
       <cite>— Andrej Karpathy, April 2026</cite>
     </div>
     <div class="pain-grid">
       <div class="pain-card">
-        <div class="icon">🔁</div>
+        <div class="icon"><i class="ph-bold ph-arrows-clockwise"></i></div>
         <h4>Re-reading everything, every time</h4>
         <p>Agents paste entire files into context just to answer a single question. Token waste compounds on every call.</p>
       </div>
       <div class="pain-card">
-        <div class="icon">⏳</div>
+        <div class="icon"><i class="ph-bold ph-clock-countdown"></i></div>
         <h4>No sense of what changed</h4>
         <p>Agents can't tell if a function was renamed last week or a decision was reversed. History is invisible.</p>
       </div>
       <div class="pain-card">
-        <div class="icon">🔗</div>
+        <div class="icon"><i class="ph-bold ph-link-break"></i></div>
         <h4>Disconnected knowledge silos</h4>
         <p>Code, docs, and conversations live in separate systems. Agents have no way to connect the dots across them.</p>
       </div>
     </div>
   </div>
-  <div class="slide-counter">2 / 8</div>
+  <div class="slide-counter">2 / 7</div>
 </div>
 
 <!-- ══ SLIDE 3 — SOLUTION ══ -->
 <div class="slide" id="slide-3" style="background:#fff;">
   <div class="inner">
-    <span class="tag tag-teal">◆ The Solution</span>
+    <span class="tag tag-teal"><i class="ph-fill ph-lightbulb"></i> The Solution</span>
     <h2>Drop a folder in.<br>Get a <em>queryable knowledge graph</em><br>that never forgets what changed.</h2>
     <div class="stats-strip">
       <div class="stat-cell"><div class="num c">13</div><div class="lbl">MCP Tools</div></div>
@@ -541,32 +486,17 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--bg);
       <div class="flow-step"><span class="step-n">4</span>13 MCP tools ready</div>
     </div>
   </div>
-  <div class="slide-counter">3 / 8</div>
+  <div class="slide-counter">3 / 7</div>
 </div>
 
 <!-- ══ SLIDE 4 — TEMPORAL GRAPH ══ -->
 <div class="slide" id="slide-4" style="background:var(--bg);">
   <div class="inner">
-    <span class="tag tag-violet">◆ Core Innovation</span>
+    <span class="tag tag-violet"><i class="ph-fill ph-clock-clockwise"></i> Core Innovation</span>
     <h2>Every fact has a timestamp.<br>Query the past, not just the present.</h2>
 
     <div class="timeline-card">
-      <svg viewBox="0 0 700 100" xmlns="http://www.w3.org/2000/svg" width="100%" preserveAspectRatio="xMidYMid meet">
-        <line x1="40" y1="50" x2="660" y2="50" stroke="#e2e8f0" stroke-width="2"/>
-        <polygon points="660,45 672,50 660,55" fill="#e2e8f0"/>
-        <rect x="100" y="37" width="180" height="26" rx="6" fill="rgba(2,132,199,.1)" stroke="#0284c7" stroke-width="1.2"/>
-        <text x="190" y="54" text-anchor="middle" fill="#0284c7" font-family="JetBrains Mono,monospace" font-size="10" font-weight="600">VALID · v1.2</text>
-        <rect x="340" y="37" width="220" height="26" rx="6" fill="rgba(13,148,136,.08)" stroke="#0d9488" stroke-width="1.2"/>
-        <text x="450" y="54" text-anchor="middle" fill="#0d9488" font-family="JetBrains Mono,monospace" font-size="10" font-weight="600">VALID · v2.0</text>
-        <circle cx="100" cy="50" r="5" fill="#0284c7" stroke="#f8fafc" stroke-width="2"/>
-        <circle cx="280" cy="50" r="5" fill="#0284c7" stroke="#f8fafc" stroke-width="2"/>
-        <circle cx="340" cy="50" r="5" fill="#0d9488" stroke="#f8fafc" stroke-width="2"/>
-        <circle cx="560" cy="50" r="5" fill="#0d9488" stroke="#f8fafc" stroke-width="2"/>
-        <text x="100" y="76" text-anchor="middle" fill="#94a3b8" font-family="JetBrains Mono,monospace" font-size="9">valid_at · Jan</text>
-        <text x="280" y="76" text-anchor="middle" fill="#94a3b8" font-family="JetBrains Mono,monospace" font-size="9">invalid_at · Mar</text>
-        <text x="340" y="76" text-anchor="middle" fill="#94a3b8" font-family="JetBrains Mono,monospace" font-size="9">valid_at · Apr</text>
-        <text x="560" y="76" text-anchor="middle" fill="#94a3b8" font-family="JetBrains Mono,monospace" font-size="9">now</text>
-      </svg>
+      <img src="temporal.png" alt="Bi-temporal timeline" style="width:100%;display:block;border-radius:8px;">
     </div>
 
     <div class="cpills">
@@ -580,7 +510,7 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--bg);
       Contradictions invalidate old edges — they don't erase them. You can always ask "what did the graph believe on March 1st?"
     </div>
   </div>
-  <div class="slide-counter">4 / 8</div>
+  <div class="slide-counter">4 / 7</div>
 </div>
 
 <!-- ══ SLIDE 5 — AGENT INTEGRATION ══ -->
@@ -588,15 +518,21 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--bg);
   <div class="inner">
     <!-- Left -->
     <div>
-      <span class="tag">◆ Agent-Native</span>
-      <h2 style="margin-top:16px;">One config line.<br>All your IDEs.</h2>
+      <span class="tag"><i class="ph-fill ph-robot"></i> Agent-Native</span>
+      <h2 style="margin-top:16px;">One config line.<br>Works where you work.</h2>
       <div class="ide-chips">
-        <span class="ide-chip">◆ Claude Code</span>
-        <span class="ide-chip">▣ Cursor</span>
-        <span class="ide-chip">◇ Codex</span>
-        <span class="ide-chip">⬢ Aider</span>
-        <span class="ide-chip">▽ Continue</span>
-        <span class="ide-chip">⌘ Cline</span>
+        <span class="ide-chip">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="#D4720B"><path d="M17.3041 3.541h-3.6718l6.696 16.918H24Zm-10.6082 0L0 20.459h3.7442l1.3693-3.5527h7.0052l1.3693 3.5528h3.7442L10.5363 3.5409Zm-.3712 10.2232 2.2914-5.9456 2.2914 5.9456Z"/></svg>
+          Claude Code
+        </span>
+        <span class="ide-chip">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="#000"><path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.0729zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.872zm16.5963 3.8558L13.1038 8.364 15.1192 7.2a.0757.0757 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.407-.667zm2.0107-3.0231l-.142-.0852-4.7735-2.7818a.7759.7759 0 0 0-.7854 0L9.409 9.2297V6.8974a.0662.0662 0 0 1 .0284-.0615l4.8303-2.7866a4.4992 4.4992 0 0 1 6.6802 4.66zM8.3065 12.863l-2.02-1.1638a.0804.0804 0 0 1-.038-.0567V6.0742a4.4992 4.4992 0 0 1 7.3757-3.4537l-.142.0805L8.704 5.459a.7948.7948 0 0 0-.3927.6813zm1.0976-2.3654l2.602-1.4998 2.6069 1.4998v2.9994l-2.5974 1.4997-2.6067-1.4997Z"/></svg>
+          Codex
+        </span>
+        <span class="ide-chip">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="#8E75B2"><path d="M11.04 19.32Q12 21.51 12 24q0-2.49.93-4.68.96-2.19 2.58-3.81t3.81-2.55Q21.51 12 24 12q-2.49 0-4.68-.93a12.3 12.3 0 0 1-3.81-2.58 12.3 12.3 0 0 1-2.58-3.81Q12 2.49 12 0q0 2.49-.96 4.68-.93 2.19-2.55 3.81a12.3 12.3 0 0 1-3.81 2.58Q2.49 12 0 12q2.49 0 4.68.96 2.19.93 3.81 2.55t2.55 3.81"/></svg>
+          Gemini CLI
+        </span>
       </div>
       <p class="tool-label">13 MCP Tools</p>
       <div class="mcp-grid">
@@ -635,63 +571,13 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--bg);
 <span class="tp">}</span></div>
     </div>
   </div>
-  <div class="slide-counter">5 / 8</div>
+  <div class="slide-counter">5 / 7</div>
 </div>
 
-<!-- ══ SLIDE 6 — DESKTOP APP ══ -->
-<div class="slide" id="slide-6">
+<!-- ══ SLIDE 6 — SELF HOST ══ -->
+<div class="slide" id="slide-6" style="background:#fff;">
   <div class="inner">
-    <div class="s6-top">
-      <div style="display:flex;flex-direction:column;gap:8px;">
-        <span class="tag tag-teal">◆ Desktop App · Coming Soon</span>
-        <h2>The graph, in native form.</h2>
-      </div>
-      <div class="s6-feats">
-        <div class="s6-feat"><span class="s6-dot"></span>Knowledge graph viewer</div>
-        <div class="s6-feat"><span class="s6-dot"></span>Streaming AI chat</div>
-        <div class="s6-feat"><span class="s6-dot"></span>Book reader + MCP Gateway</div>
-      </div>
-    </div>
-    <div class="s6-screens">
-      <div class="s6-panel">
-        <div class="app-frame">
-          <div class="app-titlebar">
-            <div class="tl tl-r"></div><div class="tl tl-y"></div><div class="tl tl-g"></div>
-            <span class="app-title">Overview</span>
-          </div>
-          <img src="home.png" alt="wikiX Desktop — Overview"/>
-        </div>
-        <div class="s6-label">Overview</div>
-      </div>
-      <div class="s6-panel">
-        <div class="app-frame">
-          <div class="app-titlebar">
-            <div class="tl tl-r"></div><div class="tl tl-y"></div><div class="tl tl-g"></div>
-            <span class="app-title">Knowledge Graph</span>
-          </div>
-          <img src="graph.png" alt="wikiX Desktop — Graph Viewer"/>
-        </div>
-        <div class="s6-label">Graph Viewer</div>
-      </div>
-      <div class="s6-panel">
-        <div class="app-frame">
-          <div class="app-titlebar">
-            <div class="tl tl-r"></div><div class="tl tl-y"></div><div class="tl tl-g"></div>
-            <span class="app-title">AI Chat</span>
-          </div>
-          <img src="chat.png" alt="wikiX Desktop — Chat"/>
-        </div>
-        <div class="s6-label">AI Chat</div>
-      </div>
-    </div>
-  </div>
-  <div class="slide-counter" style="color:rgba(148,163,184,.5);">6 / 8</div>
-</div>
-
-<!-- ══ SLIDE 7 — SELF HOST ══ -->
-<div class="slide" id="slide-7" style="background:#fff;">
-  <div class="inner">
-    <span class="tag">◆ Open Source · MIT</span>
+    <span class="tag"><i class="ph-fill ph-lock-open"></i> Open Source · MIT</span>
     <h2>Your knowledge.<br>Your server.</h2>
     <div class="host-grid">
       <div class="host-card">
@@ -728,11 +614,11 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--bg);
     </div>
     <p style="font-family:var(--mono);font-size:0.72rem;color:var(--muted);">Up in under 30 seconds.</p>
   </div>
-  <div class="slide-counter">7 / 8</div>
+  <div class="slide-counter">6 / 7</div>
 </div>
 
-<!-- ══ SLIDE 8 — CTA ══ -->
-<div class="slide dot-bg" id="slide-8">
+<!-- ══ SLIDE 7 — CTA ══ -->
+<div class="slide dot-bg" id="slide-7">
   <div class="inner">
     <svg viewBox="0 0 260 64" height="40" xmlns="http://www.w3.org/2000/svg">
       <path d="M260,8l0,48c0,4.415-3.585,8-8,8l-244,0c-4.415,0-8-3.585-8-8l0-48c0-4.415,3.585-8,8-8l244,0c4.415,0,8,3.585,8,8Z" fill="#040806"/>
@@ -765,13 +651,13 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--bg);
     </div>
     <p class="footer-line">github.com/vkfolio/wikiX · MIT Licensed · Built for agents</p>
   </div>
-  <div class="slide-counter">8 / 8</div>
+  <div class="slide-counter">7 / 7</div>
 </div>
 
 </div><!-- /deck -->
 
 <script>
-const TOTAL = 8;
+const TOTAL = 7;
 let current = 0;
 const slides = Array.from(document.querySelectorAll('.slide'));
 const dots   = Array.from(document.querySelectorAll('.dot'));
@@ -802,6 +688,38 @@ document.getElementById('deck').addEventListener('click', e => {
   goTo(current + 1);
 });
 dots.forEach((d, i) => d.addEventListener('click', e => { e.stopPropagation(); goTo(i); }));
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script>
+const dlBtn = document.getElementById('dl-btn');
+const names = ['01-hero','02-problem','03-solution','04-temporal-graph','05-agent-integration','06-self-host','07-cta'];
+
+async function downloadSlides() {
+  dlBtn.classList.add('busy');
+  dlBtn.textContent = 'Capturing…';
+
+  const orig = current;
+  for (let i = 0; i < TOTAL; i++) {
+    goTo(i);
+    await new Promise(r => setTimeout(r, 120));
+    const canvas = await html2canvas(slides[i], {
+      scale: 2, useCORS: true, allowTaint: true,
+      width: 1270, height: 760,
+      windowWidth: 1270, windowHeight: 760
+    });
+    const a = document.createElement('a');
+    a.download = `wikix-slide-${names[i]}.png`;
+    a.href = canvas.toDataURL('image/png');
+    a.click();
+    await new Promise(r => setTimeout(r, 200));
+  }
+
+  goTo(orig);
+  dlBtn.classList.remove('busy');
+  dlBtn.innerHTML = `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download slides`;
+}
+
+dlBtn.addEventListener('click', e => { e.stopPropagation(); downloadSlides(); });
 </script>
 </body>
 </html>
